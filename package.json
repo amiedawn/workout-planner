@@ -1,0 +1,27 @@
+{
+  "name": "workout-planner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "start": "node server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amiedawn/workout-planner.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amiedawn/workout-planner/issues"
+  },
+  "homepage": "https://github.com/amiedawn/workout-planner#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.4.0"
+  }
+}
