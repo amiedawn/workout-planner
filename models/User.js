@@ -14,11 +14,6 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    // define a username column
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     // define an email column
     // email: {
     //   type: DataTypes.STRING,
@@ -30,7 +25,7 @@ User.init(
     //     isEmail: true,
     //   },
     // },
-    
+
     // define a username column
     username: {
       type: DataTypes.STRING,
@@ -54,3 +49,5 @@ User.init(
     modelName: "user",
   }
 );
+
+module.exports = User;
