@@ -12,3 +12,13 @@ body {
   padding: 0px;
   overflow-x: hidden;
 }
+
+.container-image {
+  background-image: url(images/workout\ banner\ image.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.highlight {
+  background-color: white;
+}
