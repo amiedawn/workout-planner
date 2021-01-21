@@ -1,10 +1,11 @@
 const router = require("express").Router();
-const { Plan, User } = require("../../models");
+const { Plan, User, Comment } = require("../../models");
 
 // get all plans
 router.get("/", (req, res) => {
   console.log("======================");
   Plan.findAll({
+    order: [["created_at", "DESC"]],
     // Query configuration ,add comment id???
     attributes: [
       "id",
@@ -46,6 +47,14 @@ router.get("/:id", (req, res) => {
       {
         model: User,
         attributes: ["username"],
+      },
+      {
+        model: Comment,
+        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+        include: {
+          model: User,
+          attributes: ["username"],
+        },
       },
     ],
   })

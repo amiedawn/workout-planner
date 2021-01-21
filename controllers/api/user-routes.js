@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const { User } = require("../../models");
+const { User, Plan, Comment } = require("../../models");
+const sequelize = require("../../config/connection");
 
 // GET /api/users
 router.get('/', (req, res) => {
@@ -16,17 +17,44 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   User.findOne({
     where: {
-      id: req.params.id
-    }
+      id: req.params.id,
+    },
+    include: [
+      {
+        model: Plan,
+        attributes: [
+          "id",
+          "plan_title",
+          "category_name",
+          "class_name",
+          "user_id",
+          "created_at",
+        ],
+      },  
+      {
+        model: Comment,
+        attributes: [
+          "id",
+          "comment_text",
+          "plan_id",
+          "user_id",
+          "created_at"
+        ],
+        include: {
+          model: User,
+          attributes: ["username"],
+        },
+      },
+    ],
   })
-    .then(dbUserData => {
+    .then((dbUserData) => {
       if (!dbUserData) {
-        res.status(404).json({ message: 'No user found with this id' });
+        res.status(404).json({ message: "No user found with this id" });
         return;
       }
       res.json(dbUserData);
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
