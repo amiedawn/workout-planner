@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+
+.container-image {
+  background-image: url(images/workout\ banner\ image.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.highlight {
+  background-color: white;
+}
