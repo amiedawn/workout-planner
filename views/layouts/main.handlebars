@@ -5,21 +5,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Workout Planner</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
   <div class="wrapper">
     <header>
-      <h1>
-        <a href="/">Workout Planner</a>
-      </h1>
+      <nav class="black">
+        <div class="nav-wrapper container">
+          <a href="/" class="brand-logo">Workout Planner</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/"></a>Login</a></li>
+          </ul>
+        </div>
+      </nav>
     </header>
     <main>
       {{{ body }}}
     </main>
-    <footer>
-      Thanks for visiting!
+    <footer class="page-footer black">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Workout Planner</h5>
+            <p class="grey-text text-lighten-4">Plan your next workout activity and keep track of your workouts.</p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Navigation</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="#!">Login</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Categories</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          © 2021 Workout Planner
+        </div>
+      </div>
     </footer>
   </div>
 
