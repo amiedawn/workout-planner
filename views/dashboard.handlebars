@@ -1,35 +1,16 @@
-<section>
-  <h2>Create New Plan</h2>
 
-  <form class="new-plan-form">
-    <div>
-      <label for="plan-title">Title</label>
-      <input type="text" id="plan-title" name="plan-title" />
-    </div>
-    <div>
-      <label for="category_name">Category Name</label>
-      <input id="category_name" name="category_name" />
-    </div>
-      <div>
-      <label for="class_name">Class Name</label>
-      <input id="class_name" name="class_name" />
-    </div>
-    <button type="submit" class="btn">Create</button>
-  </form>
+
+<section class="your-plans">
+    <h2>Your Plans</h2>
+    <ol>
+        {{#each plans as |plans|}}
+        <li>
+            {{> plan-info plans}}
+         </li>
+        {{/each}}
+    </ol>
 </section>
 
-{{#if plans.length}}
-<section>
-  <h2>Your Plans</h2>
-  <ol>
-    {{#each plans as |plan|}}
-    <li>
-      {{> plan-info plans}}
-   
-    </li>
-    {{/each}}
-  </ol>
-</section>
-{{/if}}
 
-<script src="/javascript/add-post.js"></script>
+
+<script src="../public/javascript/add-plan.js"></script>

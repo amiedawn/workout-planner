@@ -178,3 +178,4 @@ const classData = [
 const seedClasses = () => Class.bulkCreate(classData);
 
 module.exports = seedClasses;
+

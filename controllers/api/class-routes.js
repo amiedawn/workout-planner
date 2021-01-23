@@ -1,25 +1,21 @@
 const router = require("express").Router();
-const { Plan, User, Comment } = require("../../models");
+const { Category, Class } = require("../../models");
 
-// get all plans
+// get all classes
 router.get("/", (req, res) => {
   console.log("======================");
-  Plan.findAll({
+  Class.findAll({
     order: [["created_at", "DESC"]],
     // Query configuration ,add comment id???
     attributes: [
       "id",
-      "plan_title",
-      "category_name",
       "class_name",
-      "user_id",
-      "created_at",
+      "category_id",
     ],
-    order: [["created_at", "DESC"]],
     include: [
       {
-        model: User,
-        attributes: ["username"],
+        model: Category,
+        attributes: ["category_name"],
       },
     ],
   })
@@ -31,36 +27,25 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  Plan.findOne({
+  Class.findOne({
     where: {
       id: req.params.id,
     },
     attributes: [
       "id",
-      "plan_title",
-      "category_name",
       "class_name",
-      "user_id",
-      "created_at",
+      "category_name",
     ],
     include: [
       {
-        model: User,
-        attributes: ["username"],
-      },
-      {
-        model: Comment,
-        attributes: ["id", "comment_text", "plan_id", "user_id", "created_at"],
-        include: {
-          model: User,
-          attributes: ["username"],
-        },
+        model: Category,
+        attributes: ["category_name"],
       },
     ],
   })
     .then((dbPostData) => {
       if (!dbPostData) {
-        res.status(404).json({ message: "No plan found with this id" });
+        res.status(404).json({ message: "No class found with this id" });
         return;
       }
       res.json(dbPostData);
@@ -72,11 +57,9 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  Plan.create({
-    plan_title: req.body.plan_title,
-    category_name: req.body.category_name,
+  Class.create({
     class_name: req.body.class_name,
-    user_id: req.body.user_id,
+    category_id: req.body.category_id,
   })
     .then((dbPostData) => res.json(dbPostData))
     .catch((err) => {
@@ -86,11 +69,10 @@ router.post("/", (req, res) => {
 });
 
 router.put("/:id", (req, res) => {
-  Plan.update(
+  Class.update(
     {
       plan_title: req.body.plan_title,
-      category_name: req.body.category_name,
-      class_name: req.body.class_name
+      category_id: req.body.category_id,
     },
     {
       where: {
@@ -100,7 +82,7 @@ router.put("/:id", (req, res) => {
   )
     .then((dbPostData) => {
       if (!dbPostData) {
-        res.status(404).json({ message: "No plan found with this id" });
+        res.status(404).json({ message: "No class found with this id" });
         return;
       }
       res.json(dbPostData);
@@ -112,14 +94,14 @@ router.put("/:id", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-  Plan.destroy({
+  Class.destroy({
     where: {
       id: req.params.id,
     },
   })
     .then((dbPostData) => {
       if (!dbPostData) {
-        res.status(404).json({ message: "No plan found with this id" });
+        res.status(404).json({ message: "No class found with this id" });
         return;
       }
       res.json(dbPostData);
