@@ -1,37 +1,40 @@
 const { Model, DataTypes } = require("sequelize");
+
 const sequelize = require("../config/connection");
 
-// create our Category model
-class Category extends Model {}
+class ClassCategory extends Model {}
 
-// create fields/columns for Category model
-Category.init(
+ClassCategory.init(
   {
+    // define columns
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    category_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    /*  AM Commented out -  Not needed - creates circular ref.
     class_id: {
       type: DataTypes.INTEGER,
       references: {
         model: "class",
         key: "id",
       },
-    },*/
+    },
+    category_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "category",
+        key: "id",
+      },
+    },
   },
   {
     sequelize,
+    timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "category",
+    modelName: "class_category",
   }
 );
 
-module.exports = Category;
+module.exports = ClassCategory;
