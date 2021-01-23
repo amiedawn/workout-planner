@@ -1,0 +1,16 @@
+<article class="plan">
+  <div class="title">
+    <a href="{{plan.category_name}}" target="_blank">{{category.title}}</a>
+    <span>({{plan.category_name}})</span>
+  </div>
+    <div class="title">
+    <a href="{{plan.class_name}}" target="_blank">{{class.title}}</a>
+    <span>({{plan.class_name}})</span>
+  </div>
+  <div class="meta">
+    Created by {{plan.user.username}} on
+    {{post.created_at}}
+    |
+    <a href="/post/{{plan.id}}">{{post.comments.length}} comment(s)</a>
+  </div>
+</article>
