@@ -76,7 +76,6 @@ router.post("/", (req, res) => {
     plan_title: req.body.plan_title,
     category_name: req.body.category_name,
     class_name: req.body.class_name,
-    user_id: req.body.user_id,
   })
     .then((dbPostData) => res.json(dbPostData))
     .catch((err) => {

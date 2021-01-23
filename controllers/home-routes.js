@@ -39,6 +39,12 @@ router.get('/newPlan', (req, res) => {
 router.get('/calendar', (req, res) => {
   res.render('calendar');
 });
+
+router.get('/dashboard', (req, res) => {
+  res.render('dashboard');
+});
+
+
 module.exports = router;
 
 
