@@ -37,6 +37,15 @@ html {
   margin-bottom: 0;
 }
 
+.row .col {
+  padding: 0 1.0rem;
+}
+
 .section {
   padding-top: 0;
+}
+
+.logo {
+  height: 350px;
+  padding-top: -10px;
 }
