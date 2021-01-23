@@ -13,6 +13,10 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  background-color: teal;
+}
+
 .container-image {
   background-image: url(images/workout\ banner\ image.jpg);
   background-size: cover;
@@ -21,4 +25,18 @@ body {
 
 .highlight {
   background-color: white;
+}
+
+.cardblock {
+  padding-top: 35px;
+  padding-bottom: 15px;
+  background-color: teal;
+}
+
+.row {
+  margin-bottom: 0;
+}
+
+.section {
+  padding-top: 0;
 }
