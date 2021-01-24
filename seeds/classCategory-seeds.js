@@ -47,19 +47,11 @@ const classCategoryData = [
   },
   {
     class_id: 7,
-<<<<<<< HEAD
-    category_id: 3,
-  },
-  {
-    class_id: 7,
-    category_id: 2,
-=======
     category_id: 2,
   },
   {
     class_id: 7,
     category_id: 3,
->>>>>>> feature/#23-seed-tables
   },
   {
     class_id: 8,
