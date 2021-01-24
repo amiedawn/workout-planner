@@ -2,8 +2,9 @@ const seedUsers = require("./user-seeds");
 const seedPlans = require("./plan-seeds");
 const seedComments = require("./comment-seeds");
 const seedClasses = require('./class-seeds');
-const seedCategories = require('category-seeds');
-const seedClassCategories = require('classCategory-seeds');
+const seedCategories = require('./category-seeds');
+const seedClassCategories = require('./classCategory-seeds');
+const seedPlanClasses = require('./planClass-seeds');
 
 const sequelize = require("../config/connection");
 
@@ -16,6 +17,9 @@ const seedAll = async () => {
   console.log("--------------");
 
   await seedPlans();
+  console.log("--------------");
+
+  await seedPlanClasses();
   console.log("--------------");
 
   await seedComments();

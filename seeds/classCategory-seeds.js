@@ -173,4 +173,4 @@ const classCategoryData = [
 
 const seedClassCategories = () => ClassCategory.bulkCreate(classCategoryData);
 
-module.exports = seedClassCategory;
+module.exports = seedClassCategories;
