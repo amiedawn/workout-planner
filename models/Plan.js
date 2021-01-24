@@ -25,13 +25,28 @@ Plan.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    user_id: {
+    /*category_name: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'category',
+        key: 'id'
+      }
+    },
+    class_name: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'class',
+        key: 'id'
+      }
+    },*/
+    
+    /*user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
         key: 'id'
       }
-    }
+    }*/
   },
   {
     sequelize,

@@ -1,0 +1,16 @@
+
+
+<section class="your-plans">
+    <h2>Your Plans</h2>
+    <ol>
+        {{#each plans as |plans|}}
+        <li>
+            {{> plan-info plans}}
+         </li>
+        {{/each}}
+    </ol>
+</section>
+
+
+
+<script src="../public/javascript/add-plan.js"></script>

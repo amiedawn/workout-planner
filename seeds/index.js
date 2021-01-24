@@ -33,7 +33,6 @@ const seedAll = async () => {
 
   await seedClassCategories();
   console.log("--------------");
-
   
 
   process.exit(0);
