@@ -17,14 +17,15 @@ Class.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    /* not sure we need this
+   /*I do think we need this, doesn't work without it 1-23 at 8:19*/
+    /* not sure we need this*/
     category_id: {
       type: DataTypes.INTEGER,
       references: {
         model: "category",
         key: "id",
       },
-    }, */
+    },
   },
   {
     sequelize,

@@ -18,14 +18,14 @@ Category.init(
       allowNull: false,
     },
     /* AC put back in
-    /*  AM Commented out -  Not needed - creates circular ref. */
+    /*  AM Commented out -  Not needed - creates circular ref. 
     class_id: {
       type: DataTypes.INTEGER,
       references: {
         model: "class",
         key: "id",
       },
-    },
+    },*/
   },
   {
     sequelize,
