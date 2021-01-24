@@ -19,21 +19,21 @@ const seedAll = async () => {
   await seedPlans();
   console.log("--------------");
 
-  await seedPlanClasses();
-  console.log("--------------");
-
+  
   await seedComments();
-  console.log("--------------");
-
-  await seedClasses();
   console.log("--------------");
 
   await seedCategories();
   console.log("--------------");
 
+  await seedClasses();
+  console.log("--------------");
+
   await seedClassCategories();
   console.log("--------------");
 
+  await seedPlanClasses();
+  console.log("--------------");
   process.exit(0);
 };
 
