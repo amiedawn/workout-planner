@@ -14,11 +14,12 @@ async function newFormHandler(event) {
       }),
       headers: {
         'Content-Type': 'application/json'
-      }
+      },
     });
   
     if (response.ok) {
-      response.render('dashboard');
+     // response.render('dashboard');
+     document.location.replace("/dashboard");
     } else {
       alert(response.statusText);
     }

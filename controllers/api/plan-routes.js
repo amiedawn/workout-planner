@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const sequelize = require("../../config/connection");
 const { Plan, User, Comment } = require("../../models");
 
 // get all plans

@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const sequelize = require("../../config/connection");
 const { Category, Class } = require("../../models");
 
 // get all classes

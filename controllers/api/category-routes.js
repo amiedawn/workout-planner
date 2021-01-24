@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const sequelize = require("../../config/connection");
 const {Category, Class } = require("../../models");
 
 // get all categories
@@ -16,7 +17,7 @@ router.get("/", (req, res) => {
       },
     ],
   })
-    .then((dbPostData) => res.json(dbPostData))
+    .then((dbCategoryData) => res.json(dbCategoryData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
