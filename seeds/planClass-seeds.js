@@ -7,7 +7,7 @@ const planClassData = [
   },
   {
     plan_id: 2,
-    class_id: 2
+    class_id: 2,
   },
   {
     plan_id: 3,

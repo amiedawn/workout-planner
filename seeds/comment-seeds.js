@@ -29,8 +29,7 @@ const commentData = [
   {
     user_id: 3,
     plan_id: 4,
-    comment_text:
-      "This is one of the best classes I have done in a long time.",
+    comment_text: "This is one of the best classes I have done in a long time.",
   },
   {
     user_id: 5,
