@@ -20,7 +20,7 @@
     </div>
 
 <!--if there are any posts for this user, show them-->
-<!--{{#if plans.length}} -->
+{{#if plans.length}}
 <section>
     <br><br>
     <h2 class="title">My Plans:</h2>
@@ -35,11 +35,11 @@
     </ol>
 </section>
 
-<!--{{else}}
+{{else}}
 <br>
-<!-if no plans yet, tell user-->
-<!--<h3>No plans have been submitted by this user</h3>
-{{/if}} -->
+<!--if no plans yet, tell user-->
+<h3>No plans have been submitted by this user</h3>
+{{/if}} 
 
 
 <script src="../public/javascript/add-plan.js"></script>
