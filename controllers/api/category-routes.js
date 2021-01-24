@@ -1,30 +1,23 @@
 const router = require("express").Router();
 const sequelize = require("../../config/connection");
-const { Plan, User, Comment } = require("../../models");
+const {Category, Class } = require("../../models");
 
-// get all plans
+// get all categories
 router.get("/", (req, res) => {
   console.log("======================");
-  Plan.findAll({
-    order: [["created_at", "DESC"]],
-    // Query configuration ,add comment id???
-    attributes: [
+  Category.findAll({
+      attributes: [
       "id",
-      "plan_title",
       "category_name",
-      "class_name",
-      "user_id",
-      "created_at",
     ],
-    order: [["created_at", "DESC"]],
     include: [
       {
-        model: User,
-        attributes: ["username"],
+        model: Class,
+        attributes: ["class_name"],
       },
     ],
   })
-    .then((dbPostData) => res.json(dbPostData))
+    .then((dbCategoryData) => res.json(dbCategoryData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -32,36 +25,25 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  Plan.findOne({
+  Category.findOne({
     where: {
       id: req.params.id,
     },
     attributes: [
       "id",
-      "plan_title",
       "category_name",
-      "class_name",
-      "user_id",
-      "created_at",
     ],
     include: [
       {
-        model: User,
-        attributes: ["username"],
+        model: Class,
+        attributes: ["classname"],
       },
-      {
-        model: Comment,
-        attributes: ["id", "comment_text", "plan_id", "user_id", "created_at"],
-        include: {
-          model: User,
-          attributes: ["username"],
-        },
-      },
+      
     ],
   })
     .then((dbPostData) => {
       if (!dbPostData) {
-        res.status(404).json({ message: "No plan found with this id" });
+        res.status(404).json({ message: "No category found with this id" });
         return;
       }
       res.json(dbPostData);
@@ -73,11 +55,8 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  Plan.create({
-    plan_title: req.body.plan_title,
+  Category.create({
     category_name: req.body.category_name,
-    class_name: req.body.class_name,
-    user_id: req.body.user_id,
   })
     .then((dbPostData) => res.json(dbPostData))
     .catch((err) => {
@@ -87,11 +66,9 @@ router.post("/", (req, res) => {
 });
 
 router.put("/:id", (req, res) => {
-  Plan.update(
+  Category.update(
     {
-      plan_title: req.body.plan_title,
       category_name: req.body.category_name,
-      class_name: req.body.class_name
     },
     {
       where: {
@@ -101,7 +78,7 @@ router.put("/:id", (req, res) => {
   )
     .then((dbPostData) => {
       if (!dbPostData) {
-        res.status(404).json({ message: "No plan found with this id" });
+        res.status(404).json({ message: "No category found with this id" });
         return;
       }
       res.json(dbPostData);
@@ -113,14 +90,14 @@ router.put("/:id", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-  Plan.destroy({
+  Category.destroy({
     where: {
       id: req.params.id,
     },
   })
     .then((dbPostData) => {
       if (!dbPostData) {
-        res.status(404).json({ message: "No plan found with this id" });
+        res.status(404).json({ message: "No category found with this id" });
         return;
       }
       res.json(dbPostData);

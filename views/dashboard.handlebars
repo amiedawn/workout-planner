@@ -1,0 +1,45 @@
+
+<!--from AM-->
+{{!-- <section class="your-plans">
+    <h2>Your Plans</h2>
+    <ol>
+        {{#each plans as |plans|}}
+        <li>
+            {{> plan-info plans}}
+         </li>
+        {{/each}}
+    </ol>
+</section> --}}
+<section>
+    <h2 class="title">DASHBOARD: My Activity</h2>
+    <div>
+        <a href="/dashboard/create/"><button id="add-plan" class="btn">
+                Create a New Plan</button>
+        </a>
+        <br>
+    </div>
+
+<!--if there are any posts for this user, show them-->
+{{#if plans.length}}
+<section>
+    <br><br>
+    <h2 class="title">My Plans:</h2>
+    <ol>
+        {{#each plans as |plan|}}
+        <li>
+            {{> plan-info plan}}
+            <a href="/dashboard/edit/{{plan.id}}"><button class="btn">Edit Plan</button></a>
+            <br><br>
+        </li>
+        {{/each}}
+    </ol>
+</section>
+
+{{else}}
+<br>
+<!--if no plans yet, tell user-->
+<h3>No plans have been submitted by this user</h3>
+{{/if}} 
+
+
+<script src="../public/javascript/add-plan.js"></script>

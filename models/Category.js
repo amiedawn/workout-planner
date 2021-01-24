@@ -17,14 +17,16 @@ Category.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    /*  AM Commented out -  Not needed - creates circular ref.
-    class_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "class",
-        key: "id",
-      },
-    },*/
+    // LA confirmed we don't want this on 1/24/2021
+   /*  AM Commented out -  Not needed - creates circular ref. */ 
+  //  class_id: {
+    //  type: DataTypes.INTEGER
+      // type: DataTypes.INTEGER,
+      // references: {
+      //   model: "class",
+      //   key: "id",
+      // },
+   // },
   },
   {
     sequelize,

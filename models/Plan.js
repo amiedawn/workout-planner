@@ -11,47 +11,33 @@ Plan.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
     plan_title: {
       type: DataTypes.STRING,
-      allowNull: false
-    },
-    /*category_name: {
-      type: DataTypes.STRING,
       allowNull: false,
     },
-    class_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },*/
     category_name: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'category',
-        key: 'id'
-      }
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     class_name: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'class',
-        key: 'id'
-      }
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
-        key: 'id'
-      }
-    }
+        model: "user",
+        key: "id",
+      },
+    },
   },
   {
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'plan'
+    modelName: "plan",
   }
 );
 
