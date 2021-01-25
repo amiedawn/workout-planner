@@ -1,0 +1,44 @@
+<article>
+  <a href="/dashboard" class="title"> &larr; Return to Dashboard</a>
+  <br><br>
+  <h2 class="title">Edit Plan</h2>
+  <form class="edit-plan-form">
+    <div>
+      <label for="plan-title" class="title">Plan Title:</label>
+      <input class="input" name="plan-title" type="text" value="{{plan.plan_title}}" />
+      <br><br>
+      <label for="category-name" class="title" </label>Category Name:</label>
+      <input class="textarea" name="category-name" type="text" value="{{plan.category_name}}" />
+      <br><br>
+      <label for="class-name" class="title" </label>Class Name:</label>
+      <input class="textarea" name="class-name" type="text" value="{{plan.class_name}}" />
+    </div>
+
+    <div>
+      <p class="meta">
+        Created on {{format_date plan.created_at}}
+        |
+        <a href="/plan/{{plan.id}}">{{plan.comments.length}} {{format_plural "comment" plan.comments.length}}</a>
+      </p>
+    </div>
+    <button type="submit">Save Plan</button>
+    <button type="button" class="delete-plan-btn">Delete Plan</button>
+  </form>
+</article>
+
+<form class="comment-form">
+  <div>
+    <label for="comment-body" class="title" </label>Comment:</label>
+    <textarea name="comment-body"></textarea>
+  </div>
+
+  <div>
+    <button type="submit">Add Comment</button>
+  </div>
+</form>
+
+{{> comments plan.comments}}
+
+<script src="/javascript/edit-plan.js"></script>
+<script src="/javascript/delete-plan.js"></script>
+<script src="/javascript/comment.js"></script>
