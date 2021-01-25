@@ -116,7 +116,7 @@ router.get("/plan/:id", (req, res) => {
 });
 
 
-//added here temporarily to test -- can move it to new location
+/*added here temporarily to test -- can move it to new location
 router.get('/strength-training', (req, res) => {
   res.render('strength-training');
 });
@@ -128,7 +128,7 @@ router.get('/cardio', (req, res) => {
 router.get('/toning', (req, res) => {
   res.render('toning');
 });
-
+*/
 router.get('/calendar', (req, res) => {
   res.render('calendar');
 });
