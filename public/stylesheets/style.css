@@ -34,11 +34,11 @@ html {
 }
 
 .row {
-  margin-bottom: 0;
+  margin-bottom: 15px, 25px, 0px, 25px;
 }
 
 .row .col {
-  padding: 0 1.0rem;
+  padding: 0 1rem;
 }
 
 .section {
@@ -48,4 +48,13 @@ html {
 .logo {
   height: 350px;
   padding-top: -10px;
+}
+
+.collection .collection-item {
+  margin: 15px;
+}
+
+.collection {
+  border: none;
+  margin: 0.5rem 5rem 1rem 5rem;
 }
