@@ -40,16 +40,16 @@ router.get('/cardio', (req, res) => {
   res.render('cardio');
 });
 
-router.get('/core-conditioning', (req, res) => {
-  res.render('core-conditioning');
-});
-
 router.get('/toning', (req, res) => {
   res.render('toning');
 });
 
 router.get('/calendar', (req, res) => {
   res.render('calendar');
+});
+
+router.get('/newPlan', (req, res) => {
+  res.render('newPlan');
 });
 
 /* ADD WHERE USER ID & REQ.SESSION after login works */
