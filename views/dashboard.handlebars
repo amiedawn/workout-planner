@@ -32,7 +32,7 @@
             </h1>
             <div class="row center">
                 <h5 class="header col s12 light">Instructions on how to use dashboard can go here.</h5>
-                <a href="/dashboard/create/"><button id="add-plan" class="btn">
+                <a href="/newPlan/"><button id="add-plan" class="btn">
                         Create a New Plan</button>
                 </a>
             </div>
@@ -48,14 +48,14 @@
     {{#each plans as |plan|}}
     <li class="collection-item avatar">
         <i class="material-icons circle">event</i>
-        <span class="title">Title of Plan</span>
-        <p>Time and Date <br>
-            Notes
+        <span class="title">{{plan.plan_title}}</span>
+        <p>{{format_date plan.created_at}} <br>
+            <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
         </p>
-        <a href="edit" class="secondary-content"><i class="material-icons">edit</i></a>
-        <a href="/dashboard/edit/{{plan.id}}" class="secondary-content"><i class="material-icons">Edit Plan</i></a>
+        <a href="/dashboard/edit/{{plan.id}}" class="secondary-content"><i class="material-icons">edit</i></a>
+   <!--     <a href="/dashboard/edit/{{plan.id}}" class="secondary-content"><i class="material-icons">Edit Plan</i></a>-->
     </li>
-    <li class="collection-item avatar">
+    {{!-- <li class="collection-item avatar">
         <i class="material-icons circle">event</i>
         <span class="title">Title of Plan</span>
         <p>Time and Date <br>
@@ -77,8 +77,8 @@
         <p>Time and Date <br>
             Notes
         </p>
-        <a href="/dashboard/edit/{{plan.id}}"><button class="btn">Edit Plan</button></a>
-    </li>
+        <a href="#!" class="secondary-content"><i class="material-icons">edit</i></a>
+    </li> --}}
      {{/each}}
     </ul>
 </section>
