@@ -1,13 +1,35 @@
 <div id="index-banner">
-    <div class="section no-pad-bot">
-        <div class="container-image">
-            <br><br>
-            <h1 class="header center text-black"> Core Conditioning
-            </h1>
-            <div class="row center">
-                <h5 class="header col s12 light">Find a core conditioning class below and save it to your dashboard.</h5>
-            </div>
-            <br><br>
-        </div>
+  <div class="section no-pad-bot">
+    <div class="container-image">
+      <br><br>
+      <h1 class="header center text-black"> Core Conditioning
+      </h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Find a core conditioning class below and save it to your dashboard.</h5>
+      </div>
+      <br><br>
     </div>
+  </div>
 </div>
+
+{{#if class.length}}
+<form action="#">
+ {{#each class as |class|}}
+  <p>
+    <label>
+      <input type="checkbox" />
+      <span>{{class_name}}</span>
+    </label>
+  </p>
+ {{/each}}
+</form>
+
+{{else}}
+<br>
+<!--if no plans yet, tell user-->
+<h3>Ann Screwed something up because classes are not displaying.</h3>
+<h3>{{class_name}}</h3>
+{{/if}}
+
+<script src = "/core-conditioning.js"></script>
+
