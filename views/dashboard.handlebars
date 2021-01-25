@@ -1,4 +1,3 @@
-
 <!--from AM-->
 {{!-- <section class="your-plans">
     <h2>Your Plans</h2>
@@ -8,6 +7,8 @@
             {{> plan-info plans}}
          </li>
         {{/each}}
+<!-- This is what AM took out to resolve merger conflict  
+ feature/#11-edit-plan
     </ol> --}}
 </section> 
 <section>
@@ -18,7 +19,66 @@
                
         </a>
         <br>
+
+    </ol>
+</section> --}}
+-->
+
+<div id="index-banner">
+    <div class="section no-pad-bot">
+        <div class="container-image">
+            <br><br>
+            <h1 class="header center text-black"> Dashboard: My Activity
+            </h1>
+            <div class="row center">
+                <h5 class="header col s12 light">Instructions on how to use dashboard can go here.</h5>
+                <a href="/dashboard/create/"><button id="add-plan" class="btn">
+                        Create a New Plan</button>
+                </a>
+            </div>
+            <br><br>
+        </div>
+
     </div>
+</div>
+
+{{!-- plans --}}
+<ul class="collection">
+    <li class="collection-item avatar">
+        <i class="material-icons circle">event</i>
+        <span class="title">Title of Plan</span>
+        <p>Time and Date <br>
+            Notes
+        </p>
+        <a href="edit" class="secondary-content"><i class="material-icons">edit</i></a>
+    </li>
+    <li class="collection-item avatar">
+        <i class="material-icons circle">event</i>
+        <span class="title">Title of Plan</span>
+        <p>Time and Date <br>
+            Notes
+        </p>
+        <a href="#!" class="secondary-content"><i class="material-icons">edit</i></a>
+    </li>
+    <li class="collection-item avatar">
+        <i class="material-icons circle">event</i>
+        <span class="title">Title of Plan</span>
+        <p>Time and Date <br>
+            Notes
+        </p>
+        <a href="#!" class="secondary-content"><i class="material-icons">edit</i></a>
+    </li>
+    <li class="collection-item avatar">
+        <i class="material-icons circle">event</i>
+        <span class="title">Title of Plan</span>
+        <p>Time and Date <br>
+            Notes
+        </p>
+        <a href="#!" class="secondary-content"><i class="material-icons">edit</i></a>
+    </li>
+</ul>
+
+
 
 <!--if there are any plans for this user, show them-->
 {{#if plans.length}}
@@ -40,7 +100,7 @@
 <br>
 <!--if no plans yet, tell user-->
 <h3>No plans have been submitted by this user</h3>
-{{/if}} 
+{{/if}}
 
 
 <script src="../public/javascript/add-plan.js"></script>
