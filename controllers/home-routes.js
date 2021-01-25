@@ -30,6 +30,44 @@ router.get("/", (req, res) => {
     });
 });
 
+// get all plans for homepage
+router.get("/", (req, res) => {
+  Plan.findAll({
+    attributes: [
+      "id",
+      "plan_title",
+      "category_name",
+      "class_name",
+      "created_at",
+    ],
+    include: [
+      {
+        model: Comment,
+        attributes: ["id", "comment_text", "plan_id", "user_id", "created_at"],
+        include: {
+          model: User,
+          attributes: ["username"],
+        },
+      },
+      {
+        model: User,
+        attributes: ["username"],
+      },
+    ],
+  })
+    .then((dbPlanData) => {
+      const plans = dbPlanData.map((plan) => plan.get({ plain: true }));
+      res.render("homepage", {
+        plans,
+        loggedIn: req.session.loggedIn,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 // get single plan (**this route is necessary to have comment screen from dashboard)
 router.get("/plan/:id", (req, res) => {
   Plan.findOne({

@@ -21,11 +21,12 @@ router.get('/', (req, res) => {
     .then((dbClassData) => {
       console.log("make it to render dashboard");
       const classes = dbClassData.map((classes) => classes.get({ plain: true }));
-      res.render("core-conditioning", {
-     
-        /* add "loggedIn: true" when authentication done */
-        classes,
-      });
+        console.log("dbClassData", dbClassData);
+    //  res.render("core-conditioning", {
+        res.render("dashboard", {
+          /* add "loggedIn: true" when authentication done */
+          classes,
+        });
     })
     .catch((err) => {
       console.log(err);
