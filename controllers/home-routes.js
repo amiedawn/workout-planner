@@ -30,6 +30,7 @@ router.get("/", (req, res) => {
     });
 });
 
+
 /* ADD WHERE USER ID & REQ.SESSION after login works */
 //this mimics tech-blog project, but Amie doesn't think we need this on our homepage; keeping it just in case
 // get all plans for homepage
