@@ -14,7 +14,4 @@ router.use('/comments', commentRoutes);
 router.use('/categories', categoryRoutes);
 router.use('/classes', classRoutes);
 
-
-
-
 module.exports = router;

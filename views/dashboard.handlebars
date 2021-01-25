@@ -1,3 +1,28 @@
+<!--from AM-->
+<!-- <section class="your-plans">
+    <h2>Your Plans</h2>
+    <ol>
+        {{#each plans as |plans|}}
+        <li>
+            {{> plan-info plans}}
+         </li>
+        {{/each}}
+** This is what AM took out to resolve merger conflict  
+ feature/#11-edit-plan
+    </ol> 
+</section> 
+<section>
+    <h2 class="title">DASHBOARD: My Activity</h2>
+    <div>
+        <a href="/newPlan"><button id="add-plan" class="btn">
+                Create a New Plan</button>
+               
+        </a>
+        <br>
+
+    </ol>
+</section> -->
+
 
 <div id="index-banner">
     <div class="section no-pad-bot">
@@ -7,7 +32,7 @@
             </h1>
             <div class="row center">
                 <h5 class="header col s12 light">Instructions on how to use dashboard can go here.</h5>
-                <a href="/dashboard/create/"><button id="add-plan" class="btn">
+                <a href="/newPlan/"><button id="add-plan" class="btn">
                         Create a New Plan</button>
                 </a>
             </div>
@@ -23,24 +48,17 @@
     {{#each plans as |plan|}}
     <li class="collection-item avatar">
         <i class="material-icons circle">event</i>
-        <span class="title">Title of Plan: {{plan_title}}</span>
-         <p class="meta">Category Name: {{category_name}} <br>
-         Class Name: {{class_name}}</p> <br>
-         <p class="meta">
-      <span>
-          Created by {{user.username}} on {{format_date created_at}}
-      </span>
-      |
-     <a href="/plan/{{id}}">Display Plan</a>
-     |
-     <a href="/plan/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}} </a>
-  </p>
-        <p>Time and Date <br>
-            Notes
+        <b class="title">{{plan.plan_title}}</b>
+        <div class="meta">
+            <p>Category Name: {{category_name}}</p>
+            <p>Class Name: {{class_name}}</p>
+        </div>
+        <p>Created by {{user.username}} on {{format_date plan.created_at}} <br>
+            <a href="/plan/{{plan.id}}"> {{comments.length}} {{format_plural "comment" comments.length}}</a>
         </p>
-        <a href="/dashboard/edit/{{plan.id}}"><button class="btn">Edit Plan</button></a>
+        <a href="/dashboard/edit/{{plan.id}}" class="secondary-content"><i class="material-icons">edit</i></a>
     </li>
-     {{/each}}
+    {{/each}}
     </ul>
 </section>
 
