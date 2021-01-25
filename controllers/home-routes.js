@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-/*const { Plan, User, Comment } = require("../models"); <= don't use if no plans on homepage */
+const { Plan, User, Comment } = require("../models"); /*<= don't use if no plans on homepage */
 const { Category, Class } = require("../models");
 
 // get all categories for homepage
