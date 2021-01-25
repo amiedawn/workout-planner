@@ -1,35 +1,41 @@
 <div id="index-banner">
-    <div class="section no-pad-bot">
-        <div class="container-image">
-            <br><br>
-            <h1 class="header center text-black"> Cardio
-            </h1>
-            <div class="row center">
-                <h5 class="header col s12 light">Find a cardio class below and save it to your dashboard.</h5>
-            </div>
-            <br><br>
-        </div>
+  <div class="section no-pad-bot">
+    <div class="container-image">
+      <br><br>
+      <h1 class="header center text-black"> Cardio
+      </h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Find a Cardio class below and save it to your dashboard.</h5>
+      </div>
+      <br><br>
     </div>
+  </div>
 </div>
 
-<form action="#">
-  <p>
-    <label>
-      <input type="checkbox" />
-      <span>class_name</span>
-    </label>
-  </p>
-  <p>
-    <label>
-      <input type="checkbox" />
-      <span>class_name</span>
-    </label>
-  </p>
+{{!-- plans --}}
+{{#if classes.length}}
+<ul class="collection">
+    {{#each classes as |class|}}
+    <li class="collection-item avatar">
+        <i class="material-icons circle">event</i>
+        <span>
+          <p>
+              <label>
+                <input type="checkbox" />
+                <span class = "meta">Class Name:{{class_name}} </span>
+                </label>
+                </p>
+        </span>
+     </li>
+     {{/each}}
+    </ul>
 
-  <p>
-    <label>
-      <input type="checkbox" />
-      <span>class_name</span>
-    </label>
-  </p>
-</form>
+
+{{else}}
+<br>
+<!--if no plans yet, tell user-->
+<h3>No current classes in this category</h3>
+{{/if}}
+
+
+<script src = "/cardio.js"></script>
