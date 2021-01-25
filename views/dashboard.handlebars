@@ -7,8 +7,22 @@
             {{> plan-info plans}}
          </li>
         {{/each}}
+<!-- This is what AM took out to resolve merger conflict  
+ feature/#11-edit-plan
+    </ol> --}}
+</section> 
+<section>
+    <h2 class="title">DASHBOARD: My Activity</h2>
+    <div>
+        <a href="/newPlan"><button id="add-plan" class="btn">
+                Create a New Plan</button>
+               
+        </a>
+        <br>
+
     </ol>
 </section> --}}
+-->
 
 <div id="index-banner">
     <div class="section no-pad-bot">
@@ -24,6 +38,7 @@
             </div>
             <br><br>
         </div>
+
     </div>
 </div>
 
@@ -65,7 +80,7 @@
 
 
 
-<!--if there are any posts for this user, show them-->
+<!--if there are any plans for this user, show them-->
 {{#if plans.length}}
 <section>
     <br><br>

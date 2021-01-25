@@ -24,7 +24,7 @@ router.get("/", (req, res) => {
       },
     ],
   })
-    .then((dbPostData) => res.json(dbPostData))
+    .then((dbPlanData) => res.json(dbPlanData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -59,12 +59,12 @@ router.get("/:id", (req, res) => {
       },
     ],
   })
-    .then((dbPostData) => {
-      if (!dbPostData) {
+    .then((dbPlanData) => {
+      if (!dbPlanData) {
         res.status(404).json({ message: "No plan found with this id" });
         return;
       }
-      res.json(dbPostData);
+      res.json(dbPlanData);
     })
     .catch((err) => {
       console.log(err);
@@ -79,7 +79,7 @@ router.post("/", (req, res) => {
     class_name: req.body.class_name,
     user_id: req.body.user_id,
   })
-    .then((dbPostData) => res.json(dbPostData))
+    .then((dbPlanData) => res.json(dbPlanData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -99,12 +99,12 @@ router.put("/:id", (req, res) => {
       },
     }
   )
-    .then((dbPostData) => {
-      if (!dbPostData) {
+    .then((dbPlanData) => {
+      if (!dbPlanData) {
         res.status(404).json({ message: "No plan found with this id" });
         return;
       }
-      res.json(dbPostData);
+      res.json(dbPlanData);
     })
     .catch((err) => {
       console.log(err);
@@ -118,12 +118,12 @@ router.delete("/:id", (req, res) => {
       id: req.params.id,
     },
   })
-    .then((dbPostData) => {
-      if (!dbPostData) {
+    .then((dbPlanData) => {
+      if (!dbPlanData) {
         res.status(404).json({ message: "No plan found with this id" });
         return;
       }
-      res.json(dbPostData);
+      res.json(dbPlanData);
     })
     .catch((err) => {
       console.log(err);

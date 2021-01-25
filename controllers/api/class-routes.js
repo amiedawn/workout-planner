@@ -20,7 +20,7 @@ router.get("/", (req, res) => {
       },
     ],
   })
-    .then((dbPostData) => res.json(dbPostData))
+    .then((dbClassData) => res.json(dbClassData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -44,12 +44,12 @@ router.get("/:id", (req, res) => {
       },
     ],
   })
-    .then((dbPostData) => {
-      if (!dbPostData) {
+    .then((dbClassData) => {
+      if (!dbClassData) {
         res.status(404).json({ message: "No class found with this id" });
         return;
       }
-      res.json(dbPostData);
+      res.json(dbClassData);
     })
     .catch((err) => {
       console.log(err);
@@ -62,7 +62,7 @@ router.post("/", (req, res) => {
     class_name: req.body.class_name,
     category_id: req.body.category_id,
   })
-    .then((dbPostData) => res.json(dbPostData))
+    .then((dbClassData) => res.json(dbClassData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -81,12 +81,12 @@ router.put("/:id", (req, res) => {
       },
     }
   )
-    .then((dbPostData) => {
-      if (!dbPostData) {
+    .then((dbClassData) => {
+      if (!dbClassData) {
         res.status(404).json({ message: "No class found with this id" });
         return;
       }
-      res.json(dbPostData);
+      res.json(dbClassData);
     })
     .catch((err) => {
       console.log(err);
@@ -100,12 +100,12 @@ router.delete("/:id", (req, res) => {
       id: req.params.id,
     },
   })
-    .then((dbPostData) => {
-      if (!dbPostData) {
+    .then((dbClassData) => {
+      if (!dbClassData) {
         res.status(404).json({ message: "No class found with this id" });
         return;
       }
-      res.json(dbPostData);
+      res.json(dbClassData);
     })
     .catch((err) => {
       console.log(err);

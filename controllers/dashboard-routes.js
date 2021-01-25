@@ -40,7 +40,8 @@ router.get('/', (req, res) => {
 });
 
 /* -- ADD when Add views/partials/edit-plan.handlebars & public/edit-plan.js
-router.get('/edit/:id', withAuth, (req, res) => {
+router.get('/edit/:id', withAuth, (req, res) => { */
+router.get('/edit/:id', (req, res) => {  
     Plan.findOne({
       where: {
         id: req.params.id
@@ -76,22 +77,24 @@ router.get('/edit/:id', withAuth, (req, res) => {
         
         res.render('edit-plan', {
           plan,
-          loggedIn: req.session.loggedIn,
-          userName: req.session.userName
+          // loggedIn: req.session.loggedIn,  /* add in when authentication
+          // userName: req.session.userName
         });
     })
     .catch(err => {
       res.status(500).json(err);
     });
-}); */
+}); 
 
 /* -- ADD when Add views/partials/edit-plan.handlebars & public/edit-plan.js
-router.get("/create/", withAuth, (req, res) => {
+router.get("/create/", withAuth, (req, res) => { */
+router.get("/create/", (req, res) => {  
   Plan.findAll({
-    where: {
-      // use the ID from the session
-      user_id: req.session.user_id,
-    },
+   //add in with authentication
+    // where: {
+    //   // use the ID from the session
+    //   user_id: req.session.user_id,
+    // },
     attributes: [
       'id',
       'plan_title',
@@ -116,12 +119,13 @@ router.get("/create/", withAuth, (req, res) => {
   })
     .then((dbPlanData) => {
       const plans = dbPlanData.map((plan) => plan.get({ plain: true }));
-      res.render("add-plan", { plans, loggedIn: true });
+      /*res.render("add-plan", { plans, loggedIn: true });  add in with authentication*/
+      res.render("add-plan", { plans });
     })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
-}); */
+}); 
 
 module.exports = router;
