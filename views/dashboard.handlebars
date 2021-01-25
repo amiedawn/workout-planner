@@ -48,38 +48,17 @@
     {{#each plans as |plan|}}
     <li class="collection-item avatar">
         <i class="material-icons circle">event</i>
-        <span class="title">{{plan.plan_title}}</span>
-        <p>{{format_date plan.created_at}} <br>
-            <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+        <b class="title">{{plan.plan_title}}</b>
+        <div class="meta">
+            <p>Category Name: {{category_name}}</p>
+            <p>Class Name: {{class_name}}</p>
+        </div>
+        <p>Created by {{user.username}} on {{format_date plan.created_at}} <br>
+            <a href="/plan/{{plan.id}}"> {{comments.length}} {{format_plural "comment" comments.length}}</a>
         </p>
         <a href="/dashboard/edit/{{plan.id}}" class="secondary-content"><i class="material-icons">edit</i></a>
-   <!--     <a href="/dashboard/edit/{{plan.id}}" class="secondary-content"><i class="material-icons">Edit Plan</i></a>-->
     </li>
-    {{!-- <li class="collection-item avatar">
-        <i class="material-icons circle">event</i>
-        <span class="title">Title of Plan</span>
-        <p>Time and Date <br>
-            Notes
-        </p>
-        <a href="#!" class="secondary-content"><i class="material-icons">edit</i></a>
-    </li>
-    <li class="collection-item avatar">
-        <i class="material-icons circle">event</i>
-        <span class="title">Title of Plan</span>
-        <p>Time and Date <br>
-            Notes
-        </p>
-        <a href="#!" class="secondary-content"><i class="material-icons">edit</i></a>
-    </li>
-    <li class="collection-item avatar">
-        <i class="material-icons circle">event</i>
-        <span class="title">Title of Plan</span>
-        <p>Time and Date <br>
-            Notes
-        </p>
-        <a href="#!" class="secondary-content"><i class="material-icons">edit</i></a>
-    </li> --}}
-     {{/each}}
+    {{/each}}
     </ul>
 </section>
 

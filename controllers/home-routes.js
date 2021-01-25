@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-const { Plan, User, Comment } = require("../models"); /*<= don't use if no plans on homepage */
+const { Plan, User, Comment } = require("../models");
 const { Category, Class } = require("../models");
 
 // get all categories for homepage
@@ -22,6 +22,53 @@ router.get("/", (req, res) => {
       res.render("homepage", {
         categories,
         /* add loggedIn: req.session.loggedIn, when authentication done */
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// get single plan (**this route is necessary to have comment screen from dashboard)
+router.get("/plan/:id", (req, res) => {
+  Plan.findOne({
+    where: {
+      id: req.params.id,
+    },
+    attributes: [
+      "id",
+      "plan_title",
+      "category_name",
+      "class_name",
+      "created_at", 
+    ],
+    include: [
+      {
+        model: Comment,
+        attributes: ["id", "comment_text", "plan_id", "user_id", "created_at"],
+        include: {
+          model: User,
+          attributes: ["username"],
+        },
+      },
+      {
+        model: User,
+        attributes: ["username"],
+      },
+    ],
+  })
+    .then((dbPlanData) => {
+      if (!dbPlanData) {
+        res.status(404).json({ message: "No plan found with this id" });
+        return;
+      }
+
+      const plan = dbPlanData.get({ plain: true });
+
+      res.render("single-plan", {
+        plan,
+     /*   loggedIn: req.session.loggedIn,  put this in with authentication */
       });
     })
     .catch((err) => {
