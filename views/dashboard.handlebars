@@ -43,7 +43,9 @@
 </div>
 
 {{!-- plans --}}
+{{#if plans.length}}
 <ul class="collection">
+    {{#each plans as |plan|}}
     <li class="collection-item avatar">
         <i class="material-icons circle">event</i>
         <span class="title">Title of Plan</span>
@@ -75,26 +77,10 @@
         <p>Time and Date <br>
             Notes
         </p>
-        <a href="#!" class="secondary-content"><i class="material-icons">edit</i></a>
+        <a href="/dashboard/edit/{{plan.id}}"><button class="btn">Edit Plan</button></a>
     </li>
-</ul>
-
-
-
-<!--if there are any plans for this user, show them-->
-{{#if plans.length}}
-<section>
-    <br><br>
-    <h2 class="title">My Plans:</h2>
-    <ol>
-        {{#each plans as |plan|}}
-        <li>
-            {{> plan-info plan}}
-            <a href="/dashboard/edit/{{plan.id}}"><button class="btn">Edit Plan</button></a>
-            <br><br>
-        </li>
-        {{/each}}
-    </ol>
+     {{/each}}
+    </ul>
 </section>
 
 {{else}}
@@ -103,5 +89,7 @@
 <h3>No plans have been submitted by this user</h3>
 {{/if}}
 
+
+   
 
 <script src="../public/javascript/add-plan.js"></script>

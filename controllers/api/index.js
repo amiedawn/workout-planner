@@ -7,6 +7,7 @@ const categoryRoutes = require('./category-routes');
 const classRoutes = require('./class-routes');
 
 
+
 router.use("/users", userRoutes);
 router.use('/plans', planRoutes);
 router.use('/comments', commentRoutes);
