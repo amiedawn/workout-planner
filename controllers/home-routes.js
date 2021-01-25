@@ -30,12 +30,26 @@ router.get("/", (req, res) => {
     });
 });
 
-router.get('/calendar', (req, res) => {
-  res.render('calendar');
+
+//added here temporarily to test -- can move it to new location
+router.get('/strength-training', (req, res) => {
+  res.render('strength-training');
+});
+
+router.get('/cardio', (req, res) => {
+  res.render('cardio');
 });
 
 router.get('/core-conditioning', (req, res) => {
   res.render('core-conditioning');
+});
+
+router.get('/toning', (req, res) => {
+  res.render('toning');
+});
+
+router.get('/calendar', (req, res) => {
+  res.render('calendar');
 });
 
 /* ADD WHERE USER ID & REQ.SESSION after login works */
