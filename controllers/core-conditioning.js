@@ -6,7 +6,7 @@ const { Class, Category } = require('../models');
 /* get all plans for dashboard ADD WHERE USER ID & REQ.SESSION after login works
 Amie DONE: also add include model comment when that is created. */
 router.get('/', (req, res) => {
-  console.log("================ get dashboard route");
+  console.log("================ get core-conditioning route");
   Class.findAll({
     attributes: ["id", "class_name"],
     include:[

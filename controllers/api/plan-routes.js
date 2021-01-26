@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const sequelize = require("../../config/connection");
+//const { Plan, User, Comment, Class, Category } = require("../../models");
 const { Plan, User, Comment } = require("../../models");
 
 // get all plans
@@ -65,6 +66,14 @@ router.get("/:id", (req, res) => {
           attributes: ["username"],
         },
       },
+      // {
+      //   model: Class,
+      //   attributes: ["id", "class_name"],
+      // },
+      // {
+      //   model: Category,
+      //   attributes: ["id", "category_name"],
+      // },
     ],
   })
     .then((dbPlanData) => {
@@ -80,6 +89,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
+/* add withAuth */
 router.post("/", (req, res) => {
   Plan.create({
     plan_title: req.body.plan_title,
@@ -94,6 +104,7 @@ router.post("/", (req, res) => {
     });
 });
 
+/* add withauth */
 router.put("/:id", (req, res) => {
   Plan.update(
     {
@@ -120,6 +131,7 @@ router.put("/:id", (req, res) => {
     });
 });
 
+/* add withAuth */
 router.delete("/:id", (req, res) => {
   Plan.destroy({
     where: {

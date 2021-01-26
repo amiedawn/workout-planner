@@ -14,22 +14,24 @@
 
 {{!-- plans --}}
 {{#if classes.length}}
-<ul class="collection">
+<form class="new-plan-form">
+  <ul class="collection">
     {{#each classes as |class|}}
     <li class="collection-item avatar">
-        <i class="material-icons circle">event</i>
-        <span>
-          <p>
-              <label>
-                <input type="checkbox" />
-                <span class = "meta">Class Name:{{class_name}} </span>
-                </label>
-                </p>
-        </span>
-     </li>
-     {{/each}}
-    </ul>
+      <i class="material-icons circle">event</i>
+      <span>
+        <p>
+          <label>
+            <input type="checkbox" data-category_name="cardio" data-id="{{id}}" data-class_name="{{class_name}}" />
+            <span class="meta">Class Name:{{class_name}} </span>
+          </label>
+        </p>
+      </span>
+    </li>
+    {{/each}}
+  </ul>
 
+</form>
 
 {{else}}
 <br>
@@ -38,4 +40,4 @@
 {{/if}}
 
 
-<script src = "/cardio.js"></script>
+<script src="/javascript/cardio.js"></script>
