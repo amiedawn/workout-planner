@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-/*const { Plan, User, Comment } = require("../models"); <= don't use if no plans on homepage */
+const { Plan, User, Comment } = require("../models");
 const { Category, Class } = require("../models");
 
 // get all categories for homepage
@@ -52,49 +52,59 @@ router.get('/homepage', (req, res) => {
 
 
 /* ADD WHERE USER ID & REQ.SESSION after login works */
-//this mimics tech-blog project, but Amie doesn't think we need this on our homepage; keeping it just in case
 // get all plans for homepage
-// router.get("/", (req, res) => {
-//   Plan.findAll({
-//     attributes: ["id", "plan_title", "category_name", "class_name", "created_at"],
-//     include: [
-//       {
-//         model: Comment,
-//         attributes: ["id", "comment_text", "plan_id", "user_id", "created_at"],
-//         include: {
-//           model: User,
-//           attributes: ["username"],
-//         },
-//       },
-//       {
-//         model: User,
-//         attributes: ["username"],
-//       },
-//     ],
-//   })
-//     .then((dbPlanData) => {
-//       const plans = dbPlanData.map((plan) => plan.get({ plain: true }));
-//       res.render("homepage", {
-//         plans,
-//      /* add loggedIn: req.session.loggedIn, when authentication done */
-//       });
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
+router.get("/", (req, res) => {
+  Plan.findAll({
+    attributes: [
+      "id",
+      "plan_title",
+      "category_name",
+      "class_name",
+      "created_at",
+    ],
+    include: [
+      {
+        model: Comment,
+        attributes: ["id", "comment_text", "plan_id", "user_id", "created_at"],
+        include: {
+          model: User,
+          attributes: ["username"],
+        },
+      },
+      {
+        model: User,
+        attributes: ["username"],
+      },
+    ],
+  })
+    .then((dbPlanData) => {
+      const plans = dbPlanData.map((plan) => plan.get({ plain: true }));
+      res.render("homepage", {
+        plans,
+        loggedIn: req.session.loggedIn,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
-// get single 
-//this mimics tech-blog project, but Amie doesn't think we need this on our homepage; keeping it just in case
 /* -- ADD when Add views/partials/edit-plan.handlebars & public/edit-plan.js
-/* add withauth when login done
+/* add withauth when login done */
+// get single plan (**this route is necessary to have comment screen from dashboard)
 router.get("/plan/:id", (req, res) => {
   Plan.findOne({
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "plan_title", "category_name", "class_name", "created_at"],
+    attributes: [
+      "id",
+      "plan_title",
+      "category_name",
+      "class_name",
+      "created_at", 
+    ],
     include: [
       {
         model: Comment,
@@ -120,13 +130,35 @@ router.get("/plan/:id", (req, res) => {
 
       res.render("single-plan", {
         plan,
-        loggedIn: req.session.loggedIn,
+     /*   loggedIn: req.session.loggedIn,  put this in with authentication */
       });
     })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
+});
+
+
+/*added here temporarily to test -- can move it to new location
+router.get('/strength-training', (req, res) => {
+  res.render('strength-training');
+});
+
+router.get('/cardio', (req, res) => {
+  res.render('cardio');
+});
+
+router.get('/toning', (req, res) => {
+  res.render('toning');
+});
+*/
+router.get('/calendar', (req, res) => {
+  res.render('calendar');
+});
+
+router.get('/newPlan', (req, res) => {
+  res.render('newPlan');
 });
 
 /* Alan: see if this is what you want here */

@@ -1,45 +1,51 @@
-
-<!--from AM-->
-{{!-- <section class="your-plans">
-    <h2>Your Plans</h2>
-    <ol>
-        {{#each plans as |plans|}}
-        <li>
-            {{> plan-info plans}}
-         </li>
-        {{/each}}
-    </ol>
-</section> --}}
-<section>
-    <h2 class="title">DASHBOARD: My Activity</h2>
-    <div>
-        <a href="/dashboard/create/"><button id="add-plan" class="btn">
-                Create a New Plan</button>
-        </a>
-        <br>
-    </div>
-
-<!--if there are any posts for this user, show them-->
-{{#if plans.length}}
-<section>
-    <br><br>
-    <h2 class="title">My Plans:</h2>
-    <ol>
-        {{#each plans as |plan|}}
-        <li>
-            {{> plan-info plan}}
-            <a href="/dashboard/edit/{{plan.id}}"><button class="btn">Edit Plan</button></a>
+<div id="index-banner">
+    <div class="section no-pad-bot">
+        <div class="container-image">
             <br><br>
-        </li>
-        {{/each}}
-    </ol>
+            <h1 class="header center text-black"> Dashboard: My Activity
+            </h1>
+            <div class="row center">
+                <h5 class="header col s12 light">Instructions on how to use dashboard can go here.</h5>
+                <a href="/newPlan/"><button id="add-plan" class="btn">
+                        Create a New Plan</button>
+                </a>
+            </div>
+            <br><br>
+        </div>
+    </div>
+</div>
+
+{{!-- plans --}}
+{{#if plans.length}}
+<ul class="collection">
+    {{#each plans as |plan|}}
+    <div class="row">
+        <div class="col s12">
+            <li class="collection-item avatar">
+                <i class="material-icons circle">event</i>
+                <b class="title">{{plan.plan_title}}</b>
+                <div class="meta">
+                    <p>Category Name: {{category_name}}</p>
+                    <p>Class Name: {{class_name}}</p>
+                </div>
+                <p>Created by {{user.username}} on {{format_date plan.created_at}} <br>
+                    <a href="/plan/{{plan.id}}"> {{comments.length}} {{format_plural "comment" comments.length}}</a>
+                </p>
+                <a href="/dashboard/edit/{{plan.id}}" class="secondary-content"><i class="material-icons">edit</i></a>
+            </li>
+            {{/each}}
+        </div>
+    </div>
+</ul>
 </section>
 
 {{else}}
 <br>
 <!--if no plans yet, tell user-->
 <h3>No plans have been submitted by this user</h3>
-{{/if}} 
+{{/if}}
 
 
-<script src="../public/javascript/add-plan.js"></script>
+
+
+<script src="/javascript/add-plan.js"></script>

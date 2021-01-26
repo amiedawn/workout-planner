@@ -14,7 +14,11 @@ body {
 }
 
 html {
-  background-color: teal;
+  background-color: white;
+}
+
+li {
+  padding-right: 2%;
 }
 
 .container-image {
@@ -24,21 +28,20 @@ html {
 }
 
 .highlight {
-  background-color: white;
+  background-color: #0082BA;
 }
 
 .cardblock {
   padding-top: 35px;
   padding-bottom: 15px;
-  background-color: teal;
 }
 
 .row {
-  margin-bottom: 0;
+  margin-bottom: 15px, 25px, 15px, 25px;
 }
 
 .row .col {
-  padding: 0 1.0rem;
+  padding: 0 1rem;
 }
 
 .section {
@@ -48,4 +51,29 @@ html {
 .logo {
   height: 350px;
   padding-top: -10px;
+}
+
+.collection .collection-item {
+  margin: 15px;
+}
+
+.collection {
+  border: none;
+  margin: 0.5rem 5rem 1rem 5rem;
+}
+
+#calendar {
+  background-color: white;
+  padding: 15px;
+  margin: 25px 180px;
+}
+
+.card .card-title {
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.collection .collection-item {
+  width: 600px;
 }

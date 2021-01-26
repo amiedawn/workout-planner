@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const sequelize = require("../../config/connection");
+//const { Plan, User, Comment, Class, Category } = require("../../models");
 const { Plan, User, Comment } = require("../../models");
 
 // get all plans
@@ -19,12 +20,20 @@ router.get("/", (req, res) => {
     order: [["created_at", "DESC"]],
     include: [
       {
+        model: Comment,
+        attributes: ["id", "comment_text", "plan_id", "user_id", "created_at"],
+        include: {
+          model: User,
+          attributes: ["username"],
+        },
+      },
+      {
         model: User,
         attributes: ["username"],
       },
     ],
   })
-    .then((dbPostData) => res.json(dbPostData))
+    .then((dbPlanData) => res.json(dbPlanData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -57,14 +66,22 @@ router.get("/:id", (req, res) => {
           attributes: ["username"],
         },
       },
+      // {
+      //   model: Class,
+      //   attributes: ["id", "class_name"],
+      // },
+      // {
+      //   model: Category,
+      //   attributes: ["id", "category_name"],
+      // },
     ],
   })
-    .then((dbPostData) => {
-      if (!dbPostData) {
+    .then((dbPlanData) => {
+      if (!dbPlanData) {
         res.status(404).json({ message: "No plan found with this id" });
         return;
       }
-      res.json(dbPostData);
+      res.json(dbPlanData);
     })
     .catch((err) => {
       console.log(err);
@@ -72,20 +89,22 @@ router.get("/:id", (req, res) => {
     });
 });
 
+/* add withAuth */
 router.post("/", (req, res) => {
   Plan.create({
-    plan_title: req.body.plan_title,
+    plan_title: req.body.plan_title || "",
     category_name: req.body.category_name,
     class_name: req.body.class_name,
     user_id: req.body.user_id,
   })
-    .then((dbPostData) => res.json(dbPostData))
+    .then((dbPlanData) => res.json(dbPlanData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
 });
 
+/* add withauth */
 router.put("/:id", (req, res) => {
   Plan.update(
     {
@@ -99,12 +118,12 @@ router.put("/:id", (req, res) => {
       },
     }
   )
-    .then((dbPostData) => {
-      if (!dbPostData) {
+    .then((dbPlanData) => {
+      if (!dbPlanData) {
         res.status(404).json({ message: "No plan found with this id" });
         return;
       }
-      res.json(dbPostData);
+      res.json(dbPlanData);
     })
     .catch((err) => {
       console.log(err);
@@ -112,18 +131,19 @@ router.put("/:id", (req, res) => {
     });
 });
 
+/* add withAuth */
 router.delete("/:id", (req, res) => {
   Plan.destroy({
     where: {
       id: req.params.id,
     },
   })
-    .then((dbPostData) => {
-      if (!dbPostData) {
+    .then((dbPlanData) => {
+      if (!dbPlanData) {
         res.status(404).json({ message: "No plan found with this id" });
         return;
       }
-      res.json(dbPostData);
+      res.json(dbPlanData);
     })
     .catch((err) => {
       console.log(err);

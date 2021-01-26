@@ -1,0 +1,68 @@
+<article class="container">
+  <br><br>
+  <a href="/dashboard" class="title"> &larr; Return to Dashboard</a>
+  <h3>Edit Plan</h3>
+  <div>
+    <p class="meta">
+      Created on {{format_date plan.created_at}}
+      |
+      <a href="/plan/{{plan.id}}">{{plan.comments.length}} {{format_plural "comment" plan.comments.length}}</a>
+    </p>
+  </div>
+
+  <form class="edit-plan-form">
+    <div>
+      <label for="plan-title" class="title">Plan Title:</label>
+      <input class="input" name="plan-title" type="text" value="{{plan.plan_title}}" />
+    </div>
+    <div>
+      <label for="category-name" class="title" </label>Category Name:</label>
+      <input class="textarea" name="category-name" type="text" value="{{plan.category_name}}" />
+    </div>
+    <div>
+      <label for="class-name" class="title" </label>Class Name:</label>
+      <input class="textarea" name="class-name" type="text" value="{{plan.class_name}}" />
+    </div>
+    <div>
+      <button>
+        <a type="submit" class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>Save Plan</a>
+      </button>
+      <button>
+        <a type="button" class="waves-effect waves-light btn delete-plan-btn"><i class="material-icons right">delete_forever</i>Delete
+          Plan</a>
+      </button>
+    </div>
+  </form>
+
+  <form class="comment-form">
+    <div>
+      <label for="comment-body" class="title" </label>Comment:</label>
+      <textarea name="comment-body"></textarea>
+    </div>
+
+    <button>
+      <a type="submit" class=" waves-effect waves-light btn">Add
+        Comment</a>
+    </button>
+  </form>
+
+  <comments>
+    <h5> Previous Comments:</h5>
+    <div class="collection">
+      <ul class="collection-comments">
+        <li class="collection-item avatar">
+          <i class="large material-icons circle">person</i>
+          <span class="title">{{> comments plan.comments}}</span>
+          <p>
+            {{comment_text}}
+          </p>
+        </li>
+      </ul>
+    </div>
+  </comments>
+</article>
+
+
+<script src="/javascript/edit-plan.js"></script>
+<script src="/javascript/delete-plan.js"></script>
+<script src="/javascript/comment.js"></script>
