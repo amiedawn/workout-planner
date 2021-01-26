@@ -15,10 +15,10 @@
   </div>
 </div>
 
-
 {{!-- rach design --}}
 {{#if classes.length}}
 <section class='container'>
+  <form class="new-plan-form">
   {{#each classes as |class|}}
   <div class="row">
     <div class="col s6">
@@ -26,13 +26,14 @@
         <div class="card-content">
           <span class="card-title">{{class_name}} </span>
           <label>
-            <input type="checkbox" />
+            <input type="checkbox" data-category_name="strength-training" data-id="{{id}}" data-class_name="{{class_name}}" />	
             <span>Add to plan</span>
           </label>
         </div>
       </div>
     </div>
     {{/each}}
+  </form>	   
 </section>
 
 {{else}}
@@ -42,3 +43,4 @@
 {{/if}}
 
 <script src="/strength-training.js"></script>
+<script src="/javascript/checkbox.js"></script>

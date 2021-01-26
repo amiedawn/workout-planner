@@ -12,7 +12,7 @@ router.get('/', withAuth, (req, res) => {
       {
         model: Category,
         where: {
-          id: 3
+          id: 2
         },
       }
     ]
@@ -20,11 +20,12 @@ router.get('/', withAuth, (req, res) => {
     .then((dbClassData) => {
       console.log("make it to render dashboard");
       const classes = dbClassData.map((classes) => classes.get({ plain: true }));
-        console.log("dbClassData", dbClassData);
-        res.render("dashboard", {
-          /* add "loggedIn: true" when authentication done */
-          classes,
-        });
+      console.log("classes", classes);
+      res.render("core-conditioning", {
+     
+        /* add "loggedIn: true" when authentication done */
+        classes,
+      });
     })
     .catch((err) => {
       console.log(err);
