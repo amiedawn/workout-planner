@@ -15,45 +15,45 @@
 </head>
 
 <body>
-  <div class="wrapper">
-    <header>
-      <nav class="black">
-        <div class="nav-wrapper container">
-          <a href="/" class="brand-logo">workout planner</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="/login"></a>login</a></li>
+  <header>
+    <nav class="black">
+      <div class="nav-wrapper container">
+        <a href="/" class="brand-logo"><i class="large material-icons">fitness_center
+          </i>workout planner</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/login"></a>login </a></li>
+          <li><a href="/"></a> sign out</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+    {{{ body }}}
+  </main>
+  <footer class="page-footer black">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Workout Planner</h5>
+          <p class="grey-text text-lighten-4">Plan your next workout activity and keep track of your workouts.</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Navigation</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="/login">Login</a></li>
+            <li><a class="grey-text text-lighten-3" href="/newPlan">Create Plan Form</a></li>
+            <li><a class="grey-text text-lighten-3" href="/dashboard">Dashboard</a></li>
+            <li><a class="grey-text text-lighten-3" href="/calendar">Calendar</a></li>
           </ul>
         </div>
-      </nav>
-    </header>
-    <main>
-      {{{ body }}}
-    </main>
-    <footer class="page-footer black">
+      </div>
+    </div>
+    <div class="footer-copyright">
       <div class="container">
-        <div class="row">
-          <div class="col l6 s12">
-            <h5 class="white-text">Workout Planner</h5>
-            <p class="grey-text text-lighten-4">Plan your next workout activity and keep track of your workouts.</p>
-          </div>
-          <div class="col l4 offset-l2 s12">
-            <h5 class="white-text">Navigation</h5>
-            <ul>
-              <li><a class="grey-text text-lighten-3" href="/login">Login</a></li>
-              <li><a class="grey-text text-lighten-3" href="/newPlan">Create Plan Form</a></li>
-              <li><a class="grey-text text-lighten-3" href="/dashboard">Dashboard</a></li>
-              <li><a class="grey-text text-lighten-3" href="/calendar">Calendar</a></li>
-
-            </ul>
-          </div>
-        </div>
+        © 2021 Workout Planner
       </div>
-      <div class="footer-copyright">
-        <div class="container">
-          © 2021 Workout Planner
-        </div>
-      </div>
-    </footer>
+    </div>
+  </footer>
   </div>
 
 </body>
