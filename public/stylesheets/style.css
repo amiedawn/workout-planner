@@ -60,3 +60,9 @@ html {
   border: none;
   margin: 0.5rem 5rem 1rem 5rem;
 }
+
+#calendar {
+  background-color: white;
+  padding: 15px;
+  margin: 25px 180px;
+}
