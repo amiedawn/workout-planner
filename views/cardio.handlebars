@@ -12,33 +12,6 @@
   </div>
 </div>
 
-{{!-- plans
-{{#if classes.length}}
-<form class="new-plan-form">
-  <ul class="collection">
-    {{#each classes as |class|}}
-    <li class="collection-item avatar">
-      <i class="material-icons circle">event</i>
-      <span>
-        <p>
-          <label>
-            <input type="checkbox" data-category_name="cardio" data-id="{{id}}" data-class_name="{{class_name}}" />
-            <span class="meta">Class Name:{{class_name}} </span>
-          </label>
-        </p>
-      </span>
-    </li>
-    {{/each}}
-  </ul>
-
-</form>
-
-{{else}}
-<br>
-<!--if no plans yet, tell user-->
-<h3>No current classes in this category</h3>
-{{/if}} --}}
-
 {{!-- rach design --}}
 {{#if classes.length}}
 <section class='container'>
@@ -48,9 +21,10 @@
       <div class="card white darken-1">
         <div class="card-content">
           <span class="card-title">{{class_name}} </span>
-          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-          <p>I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.</p>
+          <label>
+            <input type="checkbox" />
+            <span>Add to plan</span>
+          </label>
         </div>
       </div>
     </div>
