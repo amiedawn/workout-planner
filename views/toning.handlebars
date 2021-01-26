@@ -6,38 +6,14 @@
       </h1>
       <div class="row center">
         <h5 class="header col s12 light">Find a Toning class below and save it to your dashboard.</h5>
+        <button>
+          <a href="/dashboard" class="waves-effect waves-light btn">Visit Your Dashboard</a>
+        </button>
       </div>
       <br><br>
     </div>
   </div>
 </div>
-
-{{!-- plans
-{{#if classes.length}}
-<form class="new-plan-form">
-  <ul class="collection">
-    {{#each classes as |class|}}
-    <li class="collection-item avatar">
-      <i class="material-icons circle">event</i>
-      <span>
-        <p>
-          <label>
-            <input type="checkbox" data-category_name="toning" data-id="{{id}}" data-class_name="{{class_name}}" />
-            <span class="meta">Class Name:{{class_name}} </span>
-          </label>
-        </p>
-      </span>
-    </li>
-    {{/each}}
-  </ul>
-
-</form>
-
-{{else}}
-<br>
-<!--if no plans yet, tell user-->
-<h3>No current classes in this category</h3>
-{{/if}} --}}
 
 {{!-- rach design --}}
 {{!-- {{#if classes.length}} --}}
@@ -47,9 +23,9 @@
     <div class="col s6">
       <div class="card white darken-1">
         <div class="card-content">
-          <span class="card-title">{{class_name}} </span>
+          <span class="card-title meta">{{class_name}} </span>
           <label>
-            <input type="checkbox" />
+            <input type="checkbox" data-category_name="toning" data-id="{{id}}" data-class_name="{{class_name}}" />
             <span>Add to plan</span>
           </label>
         </div>

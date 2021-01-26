@@ -15,20 +15,20 @@
 {{!-- plans --}}
 {{#if classes.length}}
 <ul class="collection">
-    {{#each classes as |class|}}
-    <li class="collection-item avatar">
-        <i class="material-icons circle">event</i>
-        <span>
-          <p>
-              <label>
-                <input type="checkbox" />
-                <span class = "meta">Class Name:{{class_name}} </span>
-                </label>
-                </p>
-        </span>
-     </li>
-     {{/each}}
-    </ul>
+  {{#each classes as |class|}}
+  <li class="collection-item avatar">
+    <i class="material-icons circle">event</i>
+    <span>
+      <p>
+        <label>
+          <input type="checkbox" />
+          <span class="meta">Class Name:{{class_name}} </span>
+        </label>
+      </p>
+    </span>
+  </li>
+  {{/each}}
+</ul>
 
 
 {{else}}
@@ -37,5 +37,11 @@
 <h3>No current classes in this category</h3>
 {{/if}}
 
+<div class="container">
+  <button>
+    <a href="/dashboard" class="waves-effect waves-light btn">Visit Your Dashboard</a>
+  </button>
+</div>
 
-<script src = "/core-conditioning.js"></script>
+
+<script src="/core-conditioning.js"></script>
