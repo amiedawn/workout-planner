@@ -14,22 +14,24 @@
 
 {{!-- plans
 {{#if classes.length}}
-<ul class="collection">
+<form class="new-plan-form">
+  <ul class="collection">
     {{#each classes as |class|}}
     <li class="collection-item avatar">
-        <i class="material-icons circle">event</i>
-        <span>
-          <p>
-              <label>
-                <input type="checkbox" />
-                <span class = "meta">Class Name:{{class_name}} </span>
-                </label>
-                </p>
-        </span>
-     </li>
-     {{/each}}
-    </ul>
+      <i class="material-icons circle">event</i>
+      <span>
+        <p>
+          <label>
+            <input type="checkbox" data-category_name="toning" data-id="{{id}}" data-class_name="{{class_name}}" />
+            <span class="meta">Class Name:{{class_name}} </span>
+          </label>
+        </p>
+      </span>
+    </li>
+    {{/each}}
+  </ul>
 
+</form>
 
 {{else}}
 <br>
@@ -38,8 +40,8 @@
 {{/if}} --}}
 
 {{!-- rach design --}}
-{{#if classes.length}}
-<section class='container'>
+{{!-- {{#if classes.length}} --}}
+{{!-- <section class='container'>
   {{#each classes as |class|}}
   <div class="row">
     <div class="col s6">
@@ -53,7 +55,26 @@
       </div>
     </div>
     {{/each}}
-</section>
+</section> --}}
+
+{{!-- plans --}}
+{{#if classes.length}}
+<ul class="collection">
+  {{#each classes as |class|}}
+  <li class="collection-item avatar">
+    <i class="material-icons circle">event</i>
+    <span>
+      <p>
+        <label>
+          <input type="checkbox" />
+          <span class="meta">Class Name:{{class_name}} </span>
+        </label>
+      </p>
+    </span>
+  </li>
+  {{/each}}
+</ul>
+
 
 {{else}}
 <br>
@@ -61,4 +82,4 @@
 <h3>No current classes in this category</h3>
 {{/if}}
 
-<script src="/toning.js"></script>
+<script src="/javascript/toning.js"></script>
