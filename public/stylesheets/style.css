@@ -17,6 +17,10 @@ html {
   background-color: white;
 }
 
+li {
+  padding-right: 2%;
+}
+
 .container-image {
   background-image: url(images/workout\ banner\ image.jpg);
   background-size: cover;
@@ -33,7 +37,7 @@ html {
 }
 
 .row {
-  margin-bottom: 15px, 25px, 0px, 25px;
+  margin-bottom: 15px, 25px, 15px, 25px;
 }
 
 .row .col {
@@ -64,6 +68,8 @@ html {
   margin: 25px 180px;
 }
 
-.card-title {
-  font-weight: bold;
+.card .card-title {
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 1;
 }
