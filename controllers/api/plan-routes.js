@@ -92,7 +92,7 @@ router.get("/:id", (req, res) => {
 /* add withAuth */
 router.post("/", (req, res) => {
   Plan.create({
-    plan_title: req.body.plan_title,
+    plan_title: req.body.plan_title || "",
     category_name: req.body.category_name,
     class_name: req.body.class_name,
     user_id: req.body.user_id,
