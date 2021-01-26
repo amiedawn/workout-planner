@@ -63,3 +63,7 @@ html {
   padding: 15px;
   margin: 25px 180px;
 }
+
+.card-title {
+  font-weight: bold;
+}
