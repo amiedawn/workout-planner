@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { Comment } = require("../../models");
 const sequelize = require("../../config/connection");
-/* const withAuth = require("../../utils/auth"); add in with authentication */
+const withAuth = require("../../utils/auth");
 
 router.get("/", (req, res) => {
   Comment.findAll()
@@ -12,11 +12,10 @@ router.get("/", (req, res) => {
     });
 });
 
-/*router.post("/", withAuth (req, res) => { add in when authentication */
-router.post("/", (req, res) => {  
+router.post("/", withAuth, (req, res) => {  
   Comment.create({
     comment_text: req.body.comment_text,
-    user_id: req.body.user_id,
+    user_id: req.session.user_id,
     plan_id: req.body.plan_id,
   })
     .then((dbCommentData) => res.json(dbCommentData))
@@ -26,8 +25,7 @@ router.post("/", (req, res) => {
     });
 });
 
-/*router.delete("/:id", withAuth, (req, res) => { add in with authentication */
-router.delete("/:id", (req, res) => {
+router.delete("/:id", withAuth, (req, res) => {
   Comment.destroy({
     where: {
       id: req.params.id,

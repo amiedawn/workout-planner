@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const sequelize = require("../../config/connection");
 const { Category, Class } = require("../../models");
+const withAuth = require("../../utils/auth");
 
 // get all classes
 router.get("/", (req, res) => {
@@ -57,7 +58,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.post("/", (req, res) => {
+router.post("/", withAuth, (req, res) => {
   Class.create({
     class_name: req.body.class_name,
     category_id: req.body.category_id,
@@ -69,7 +70,7 @@ router.post("/", (req, res) => {
     });
 });
 
-router.put("/:id", (req, res) => {
+router.put("/:id", withAuth, (req, res) => {
   Class.update(
     {
       plan_title: req.body.plan_title,
@@ -94,7 +95,7 @@ router.put("/:id", (req, res) => {
     });
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", withAuth, (req, res) => {
   Class.destroy({
     where: {
       id: req.params.id,
