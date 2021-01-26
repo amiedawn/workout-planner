@@ -30,6 +30,26 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get('/login', (req, res) => {
+  // if (req.session.loggedIn) {
+  //   res.redirect('/');
+  //   return;
+  // }
+
+   res.render('login');
+ // res.send("working");
+});
+
+router.get('/homepage', (req, res) => {
+  // if (req.session.loggedIn) {
+  //   res.redirect('/');
+  //   return;
+  // }
+
+   res.render('homepage');
+ // res.send("working");
+});
+
 
 /* ADD WHERE USER ID & REQ.SESSION after login works */
 //this mimics tech-blog project, but Amie doesn't think we need this on our homepage; keeping it just in case
