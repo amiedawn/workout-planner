@@ -45,10 +45,21 @@ router.get('/dashboard', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  res.render('login');
-});
+// <<<<<<< mayer
+//   if (req.session.loggedIn) {
+//     res.redirect('/');
+//     return;
+//   }
+
+//   res.render('login');
+// });
+
+// =======
+//   res.render('login');
+// });
 
 
+// >>>>>>> main
 
 module.exports = router;
 
