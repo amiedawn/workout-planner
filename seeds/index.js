@@ -20,7 +20,7 @@ const seedAll = async () => {
 
   await seedPlans();
   console.log("--------------");
-  
+
   await seedComments();
   console.log("--------------");
 
@@ -35,7 +35,7 @@ const seedAll = async () => {
 
   await seedPlanClasses();
   console.log("--------------");
-  
+
   process.exit(0);
 };
 

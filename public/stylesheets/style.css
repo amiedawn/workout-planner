@@ -14,10 +14,8 @@ body {
 }
 
 html {
-  background-color: teal;
+  background-color: white;
 }
-
-
 
 .container-image {
   background-image: url(images/workout\ banner\ image.jpg);
@@ -26,13 +24,12 @@ html {
 }
 
 .highlight {
-  background-color: white;
+  background-color: #0082BA;
 }
 
 .cardblock {
   padding-top: 35px;
   padding-bottom: 15px;
-  background-color: teal;
 }
 
 .row {
