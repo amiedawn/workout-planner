@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const sequelize = require("../../config/connection");
-//const { Plan, User, Comment, Class, Category } = require("../../models");
 const { Plan, User, Comment } = require("../../models");
+const withAuth = require("../../utils/auth");
 
 // get all plans
 router.get("/", (req, res) => {
@@ -66,14 +66,6 @@ router.get("/:id", (req, res) => {
           attributes: ["username"],
         },
       },
-      // {
-      //   model: Class,
-      //   attributes: ["id", "class_name"],
-      // },
-      // {
-      //   model: Category,
-      //   attributes: ["id", "category_name"],
-      // },
     ],
   })
     .then((dbPlanData) => {
@@ -89,13 +81,12 @@ router.get("/:id", (req, res) => {
     });
 });
 
-/* add withAuth */
-router.post("/", (req, res) => {
+router.post("/", withAuth, (req, res) => {
   Plan.create({
     plan_title: req.body.plan_title || "Click Edit to add a title.",
     category_name: req.body.category_name,
     class_name: req.body.class_name,
-    user_id: req.body.user_id,
+    user_id: req.session.user_id,
   })
     .then((dbPlanData) => res.json(dbPlanData))
     .catch((err) => {
@@ -104,8 +95,7 @@ router.post("/", (req, res) => {
     });
 });
 
-/* add withauth */
-router.put("/:id", (req, res) => {
+router.put("/:id", withAuth, (req, res) => {
   Plan.update(
     {
       plan_title: req.body.plan_title,
@@ -131,8 +121,7 @@ router.put("/:id", (req, res) => {
     });
 });
 
-/* add withAuth */
-router.delete("/:id", (req, res) => {
+router.delete("/:id", withAuth, (req, res) => {
   Plan.destroy({
     where: {
       id: req.params.id,

@@ -1,11 +1,10 @@
 const router = require('express').Router();
 const sequelize = require("../config/connection");
 const { Class, Category } = require('../models');
-//const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
-/* get all plans for dashboard ADD WHERE USER ID & REQ.SESSION after login works
-Amie DONE: also add include model comment when that is created. */
-router.get('/', (req, res) => {
+/* get all plans for dashboard ADD WHERE USER ID & REQ.SESSION after login works*/
+router.get('/', withAuth, (req, res) => {
   console.log("================ get core-conditioning route");
   Class.findAll({
     attributes: ["id", "class_name"],
