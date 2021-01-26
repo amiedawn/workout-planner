@@ -1,23 +1,25 @@
-<section class="container">
-  <h2>Create Your New Workout Plan</h2>
-  <div class="row new-plan-form">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s6">
-          <input id="workout_plan_title" type="text" class="validate">
-          <label class="active" for="workout_plan_title">Title of Workout Plan</label>
-        </div>
-        <div class="input-field col s6">
-          <input id="category_name" type="text" class="validate">
-          <label class="active" for="category_name">Category Name</label>
-        </div>
-        <div class="input-field col s6">
-          <input id="class_name" type="text" class="validate">
-          <label class="active" for="class_name">Class Name</label>
-        </div>
-      </div>
-    </form>
-  </div>
+
+<section>
+  <h2>Create New Plan</h2>
+
+  <form class="new-plan-form">
+    <div>
+      <label for="plan-title">Title</label>
+      <input type="text" id="plan-title" name="plan-title" />
+    </div>
+    <div>
+      <label for="category-name">Category Name</label>
+      <input id="category-name" name="category-name" /> 
+  
+    </div>
+     <div>
+      <label for="class-name">Class Name</label>
+      <input id="class-name" name="class-name" />
+    </div>
+    <button type="submit" class="btn">Submit New Plan</button>
+  </form> 
+
 </section>
+<script src = "/javascript/add-plan.js"></script>
 
 <script src="../public/javascript/add-plan.js"></script>
