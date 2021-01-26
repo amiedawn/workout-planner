@@ -63,3 +63,9 @@ html {
   padding: 15px;
   margin: 25px 180px;
 }
+
+.titlebox {
+  width: 500px;
+  background: white;
+  margin: 0 0 0 500px;
+}
