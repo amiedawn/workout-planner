@@ -1,6 +1,4 @@
 const Sequelize = require("sequelize");
-
-const Sequelize = require('sequelize');
 require('dotenv').config();
 //add jawsdb and add it in heroku too
 let sequelize;
