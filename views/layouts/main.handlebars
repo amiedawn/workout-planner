@@ -21,8 +21,13 @@
         <div class="nav-wrapper container">
           <a href="/" class="brand-logo"><i class="material-icons">fitness_center</i>workout planner</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li>
+         <!--     <a href="/login">login</a> -->
+       <!--     </li><a href="/dashboard">Dashboard</a> -->
             {{#if loggedIn}}
-            <button class="waves-effect waves-light btn logout">logout</a>
+            <button id="logout" class="waves-effect waves-light btn logout">logout</a>
+              <!--<button id="logout" class="waves-effect waves-light">logout</button>-->
+              <!--   <button id="logout" class="waves-effect waves-light">logout</button> -->
               {{else}}
               <a href="/login">login</a>
               {{/if}}
@@ -62,8 +67,9 @@
   </footer>
   </div>
   {{#if loggedIn}}
-  <script src='/javascript/logout.js'></script>
+  <script src="/javascript/logout.js"></script>
   {{/if}}
+
 </body>
 
 </html>

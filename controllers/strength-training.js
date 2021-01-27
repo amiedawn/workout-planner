@@ -21,9 +21,9 @@ router.get('/', withAuth, (req, res) => {
       console.log("make it to render dashboard");
       const classes = dbClassData.map((classes) => classes.get({ plain: true }));
       res.render("strength-training", {
-     
         /* add "loggedIn: true" when authentication done */
         classes,
+        loggedIn: true,
       });
     })
     .catch((err) => {

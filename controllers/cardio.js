@@ -23,9 +23,8 @@ router.get('/', withAuth, (req, res) => {
       const classes = dbClassData.map((classes) => classes.get({ plain: true }));
       console.log("classes", classes);
       res.render("cardio", {
-     
-        /* add "loggedIn: true" when authentication done */
         classes,
+        loggedIn: true,
       });
     })
     .catch((err) => {
