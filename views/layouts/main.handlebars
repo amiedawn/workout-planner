@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Workout Planner</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="/stylesheets/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.css"
     integrity="sha256-uq9PNlMzB+1h01Ij9cx7zeE2OR2pLAfRw3uUUOOPKdA=" crossorigin="anonymous">
@@ -18,46 +19,51 @@
     <header>
       <nav class="black">
         <div class="nav-wrapper container">
-          <a href="/" class="brand-logo">workout planner</a>
+          <a href="/" class="brand-logo"><i class="material-icons">fitness_center</i>workout planner</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li>
+            {{#if loggedIn}}
+            <button class="waves-effect waves-light btn logout">logout</a>
+              {{else}}
               <a href="/login">login</a>
-              </li>
+              {{/if}}
           </ul>
         </div>
       </nav>
     </header>
-    <main>
-      {{{ body }}}
-    </main>
-    <footer class="page-footer black">
-      <div class="container">
-        <div class="row">
-          <div class="col l6 s12">
-            <h5 class="white-text">Workout Planner</h5>
-            <p class="grey-text text-lighten-4">Plan your next workout activity and keep track of your workouts.</p>
-          </div>
-          <div class="col l4 offset-l2 s12">
-            <h5 class="white-text">Navigation</h5>
-            <ul>
-              <li><a class="grey-text text-lighten-3" href="#login">Login</a></li>
-              <li><a class="grey-text text-lighten-3" href="/newPlan">Create Plan Form</a></li>
-              <li><a class="grey-text text-lighten-3" href="/dashboard">Dashboard</a></li>
-              <li><a class="grey-text text-lighten-3" href="/calendar">Calendar</a></li>
-
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="footer-copyright">
-        <div class="container">
-          © 2021 Workout Planner
-        </div>
-      </div>
-    </footer>
   </div>
 
+  <main>
+    {{{ body }}}
+  </main>
+  <footer class="page-footer black">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Workout Planner</h5>
+          <p class="grey-text text-lighten-4">Plan your next workout activity and keep track of your workouts.</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Navigation</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="#login">Login</a></li>
+            <li><a class="grey-text text-lighten-3" href="/newPlan">Create Plan Form</a></li>
+            <li><a class="grey-text text-lighten-3" href="/dashboard">Dashboard</a></li>
+            <li><a class="grey-text text-lighten-3" href="/calendar">Calendar</a></li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        © 2021 Workout Planner
+      </div>
+    </div>
+  </footer>
+  </div>
+  {{#if loggedIn}}
+  <script src='/javascript/logout.js'></script>
+  {{/if}}
 </body>
 
 </html>
-<script src='../../lib/main.js'></script>
