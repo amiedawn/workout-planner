@@ -39,13 +39,13 @@ router.get('/login', (req, res) => {
    res.render('login');
 });
 
-router.get("/signup", (req, res) => {
+/*router.get("/signup", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/");
     return;
   }
   res.render("login"); //is this right? used to say signup, but don't have that file here
-});
+});*/
 
 router.get('/homepage', (req, res) => {
   if (req.session.loggedIn) {
@@ -145,19 +145,6 @@ router.get("/plan/:id", (req, res) => {
 });
 
 
-/*added here temporarily to test -- can move it to new location
-router.get('/strength-training', (req, res) => {
-  res.render('strength-training');
-});
-
-router.get('/cardio', (req, res) => {
-  res.render('cardio');
-});
-
-router.get('/toning', (req, res) => {
-  res.render('toning');
-});
-*/
 router.get('/calendar', (req, res) => {
   res.render('calendar');
 });
