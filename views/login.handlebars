@@ -1,35 +1,43 @@
+<article class="plan container">
+  <br></br>
+  <a href="/" class="title"> &larr; Return to Homepage</a>
+  <br></br>
 
-<form class="login-form">
-  <div>
-    <label for="username-login">Username:</label>
-    <input type="text" id="user-login" />
-  </div>
-  <div>
-    <label for="password-login">Password:</label>
-    <input type="password" id="password-login" />
-  </div>
-  <div>
-    <button type="submit">Login</button>
-  </div>
-</form>
+  <signup class="row">
+    <form class="login-form col s6">
+      <h4>Sign Into Your Account</h4>
+      <div>
+        <label for="username-login">Username:</label>
+        <input type="text" id="user-login" />
+      </div>
+      <div>
+        <label for="password-login">Password:</label>
+        <input type="password" id="password-login" />
+      </div>
+      <div>
+        <button type="submit" class="waves-effect waves-light btn">Login</button>
+      </div>
+    </form>
 
-<form class="signup-form">
-  <div>
-    <label for="username-signup">Username:</label>
-    <input type="text" id="username-signup" />
-  </div>
-  <div>
-    <label for="email-signup">Email:</label>
-    <input type="text" id="email-signup" />
-  </div>
-  <div>
-    <label for="password-signup">Password:</label>
-    <input type="password" id="password-signup" />
-  </div>
-  <div>
-    <button type="submit">Signup</button>
-  </div>
-</form>
-
+    <form class="signup-form col s6">
+      <h4>Create A New Account</h4>
+      <div>
+        <label for="username-signup">Username:</label>
+        <input type="text" id="username-signup" />
+      </div>
+      <div>
+        <label for="email-signup">Email:</label>
+        <input type="text" id="email-signup" />
+      </div>
+      <div>
+        <label for="password-signup">Password:</label>
+        <input type="password" id="password-signup" />
+      </div>
+      <div>
+        <button type="submit" class="waves-effect waves-light btn">Signup</button>
+      </div>
+    </form>
+  </signup>
+  <br></br>
+</article>
 <script src="/javascript/login.js"></script>
-
