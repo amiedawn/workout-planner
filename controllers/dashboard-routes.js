@@ -27,7 +27,8 @@ router.get('/', withAuth, (req, res) => {
       const plans = dbPlanData.map((plan) => plan.get({ plain: true }));
       res.render("dashboard", {
         plans,
-        loggedIn: true,
+        loggedIn: req.session.loggedIn,
+        //loggedIn: true,
       });
     })
     .catch((err) => {
@@ -111,7 +112,11 @@ router.get("/create/", withAuth, (req, res) => {
   })
     .then((dbPlanData) => {
       const plans = dbPlanData.map((plan) => plan.get({ plain: true }));
-      res.render("add-plan", { plans, loggedIn: true });
+      res.render("add-plan", {
+        plans,
+        loggedIn: req.session.loggedIn,
+        //loggedIn: true,
+      });
     })
     .catch((err) => {
       console.log(err);
