@@ -22,7 +22,13 @@
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li>
               <a href="/login">login</a>
-              </li>
+              </li><a href="/dashboard">Dashboard</a>
+              {{#if loggedIn}}
+              
+              <button id="logout" class="btn-no-style">Logout</button>
+              {{else}}
+              <a href="/login">Login</a>
+              {{/if}}
           </ul>
         </div>
       </nav>
@@ -56,8 +62,10 @@
       </div>
     </footer>
   </div>
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
 
 </body>
 
 </html>
-<script src='../../lib/main.js'></script>

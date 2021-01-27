@@ -21,7 +21,7 @@ router.get("/", (req, res) => {
       );
       res.render("homepage", {
         categories,
-        /* add loggedIn: req.session.loggedIn, when authentication done */
+        loggedIn: req.session.loggedIn,
       });
     })
     .catch((err) => {
@@ -31,27 +31,32 @@ router.get("/", (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  // if (req.session.loggedIn) {
-  //   res.redirect('/');
-  //   return;
-  // }
+  if (req.session.loggedIn) {
+     res.redirect('/');
+     return;
+   }
 
    res.render('login');
- // res.send("working");
+});
+
+router.get("/signup", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+  res.render("login"); //is this right? used to say signup, but don't have that file here
 });
 
 router.get('/homepage', (req, res) => {
-  // if (req.session.loggedIn) {
-  //   res.redirect('/');
-  //   return;
-  // }
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
 
    res.render('homepage');
- // res.send("working");
 });
 
 
-/* ADD WHERE USER ID & REQ.SESSION after login works */
 // get all plans for homepage
 router.get("/", (req, res) => {
   Plan.findAll({
@@ -79,7 +84,9 @@ router.get("/", (req, res) => {
   })
     .then((dbPlanData) => {
       const plans = dbPlanData.map((plan) => plan.get({ plain: true }));
-      res.render("homepage", {
+      //res.render("homepage", { /*AC I think we want to navigate to dashboard here*/
+      console.log ('render dashboard thru home-routes.js');
+      res.render("dashboard", {
         plans,
         loggedIn: req.session.loggedIn,
       });
@@ -90,8 +97,6 @@ router.get("/", (req, res) => {
     });
 });
 
-/* -- ADD when Add views/partials/edit-plan.handlebars & public/edit-plan.js
-/* add withauth when login done */
 // get single plan (**this route is necessary to have comment screen from dashboard)
 router.get("/plan/:id", (req, res) => {
   Plan.findOne({
@@ -130,7 +135,7 @@ router.get("/plan/:id", (req, res) => {
 
       res.render("single-plan", {
         plan,
-     /*   loggedIn: req.session.loggedIn,  put this in with authentication */
+        loggedIn: req.session.loggedIn,
       });
     })
     .catch((err) => {
@@ -160,22 +165,5 @@ router.get('/calendar', (req, res) => {
 router.get('/newPlan', (req, res) => {
   res.render('newPlan');
 });
-
-/* Alan: see if this is what you want here */
-// router.get("/login", (req, res) => {
-//   if (req.session.loggedIn) {
-//     res.redirect("/");
-//     return;
-//   }
-//   res.render("login");
-// });
-
-// router.get("/signup", (req, res) => {
-//   if (req.session.loggedIn) {
-//     res.redirect("/");
-//     return;
-//   }
-//   res.render("signup");
-// });
 
 module.exports = router;

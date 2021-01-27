@@ -39,6 +39,7 @@ async function signupFormHandler(event) {
       headers: { 'Content-Type': 'application/json' }
     });
 
+    // if you have username, email, and password, then navigate to homepage
     if (response.ok) {
       document.location.replace('/homepage/');
     } else {

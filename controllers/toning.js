@@ -24,8 +24,8 @@ router.get("/", withAuth, (req, res) => {
       );
       console.log("classes", classes);
       res.render("toning", {
-        /* add "loggedIn: true" when authentication done */
         classes,
+        loggedIn: true,
       });
     })
     .catch((err) => {
