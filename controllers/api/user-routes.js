@@ -84,8 +84,8 @@ router.post("/login", (req, res) => {
       username: req.body.username,
     },
   }).then((dbUserData) => {
-    dbUserData.valid = req.body.password == dbUserData.password;
-
+   // dbUserData.valid = req.body.password == dbUserData.password;
+//
     if (!dbUserData) {
       res.status(400).json({ message: "No user with that username!" });
       return;
