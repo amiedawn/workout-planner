@@ -6,6 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Workout Planner</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('select');
+      var instances = M.FormSelect.init(elems);
+    });
+  </script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="/stylesheets/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.css"
@@ -22,15 +29,15 @@
           <a href="/" class="brand-logo"><i class="material-icons">fitness_center</i>workout planner</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li>
-         <!--     <a href="/login">login</a> -->
-       <!--     </li><a href="/dashboard">Dashboard</a> -->
-            {{#if loggedIn}}
-            <button id="logout" class="waves-effect waves-light btn logout">logout</a>
-              <!--<button id="logout" class="waves-effect waves-light">logout</button>-->
-              <!--   <button id="logout" class="waves-effect waves-light">logout</button> -->
-              {{else}}
-              <a href="/login">login</a>
-              {{/if}}
+              <!--     <a href="/login">login</a> -->
+              <!--     </li><a href="/dashboard">Dashboard</a> -->
+              {{#if loggedIn}}
+              <button id="logout" class="waves-effect waves-light btn logout">logout</a>
+                <!--<button id="logout" class="waves-effect waves-light">logout</button>-->
+                <!--   <button id="logout" class="waves-effect waves-light">logout</button> -->
+                {{else}}
+                <a href="/login">login</a>
+                {{/if}}
           </ul>
         </div>
       </nav>
