@@ -4,18 +4,18 @@ const sequelize = require("../../config/connection");
 const withAuth = require("../../utils/auth");
 
 // GET /api/users
-router.get('/', (req, res) => {
+router.get("/", (req, res) => {
   // Access our User model and run .findAll() method)
   User.findAll()
-    .then(dbUserData => res.json(dbUserData))
-    .catch(err => {
+    .then((dbUserData) => res.json(dbUserData))
+    .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
 });
 
 // GET /api/users/1
-router.get('/:id', (req, res) => {
+router.get("/:id", (req, res) => {
   User.findOne({
     where: {
       id: req.params.id,
@@ -31,14 +31,10 @@ router.get('/:id', (req, res) => {
           "user_id",
           "created_at",
         ],
-      },  
+      },
       {
         model: Comment,
-        attributes: [
-          "id",
-          "comment_text",
-          "created_at"
-        ],
+        attributes: ["id", "comment_text", "created_at"],
         include: {
           model: Plan,
           attributes: ["plan_title"],
@@ -89,18 +85,20 @@ router.post("/login", (req, res) => {
     },
   }).then((dbUserData) => {
     dbUserData.valid = req.body.password == dbUserData.password;
-    res.json(dbUserData);
+
     if (!dbUserData) {
       res.status(400).json({ message: "No user with that username!" });
       return;
     }
-    console.log(dbUserData);
-    console.log(req.body.password);
-    console.log(dbUserData.password);
 
-    const validPassword = req.body.password == dbUserData.password; // dbUserData.checkPassword(req.body.password);
-    console.log(validPassword);
+    console.log({
+      dbUserData,
+      pw: req.body.password,
+      hash: dbUserData.password,
+      valid: dbUserData.checkPassword(req.body.password),
+    });
 
+    const validPassword = dbUserData.checkPassword(req.body.password);
     if (!validPassword) {
       res.status(400).json({ message: "Incorrect password!" });
       return;
@@ -128,41 +126,41 @@ router.post("/logout", (req, res) => {
 });
 
 // PUT /api/users/1
-router.put('/:id', withAuth, (req, res) => {
+router.put("/:id", withAuth, (req, res) => {
   User.update(req.body, {
     individualHooks: true,
     where: {
-      id: req.params.id
-    }
+      id: req.params.id,
+    },
   })
-    .then(dbUserData => {
+    .then((dbUserData) => {
       if (!dbUserData[0]) {
-        res.status(404).json({ message: 'No user found with this id' });
+        res.status(404).json({ message: "No user found with this id" });
         return;
       }
       res.json(dbUserData);
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
 });
 
 // DELETE /api/users/1
-router.delete('/:id', withAuth, (req, res) => {
+router.delete("/:id", withAuth, (req, res) => {
   User.destroy({
     where: {
-      id: req.params.id
-    }
+      id: req.params.id,
+    },
   })
-    .then(dbUserData => {
+    .then((dbUserData) => {
       if (!dbUserData) {
-        res.status(404).json({ message: 'No user found with this id' });
+        res.status(404).json({ message: "No user found with this id" });
         return;
       }
       res.json(dbUserData);
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });

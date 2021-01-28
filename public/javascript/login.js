@@ -37,7 +37,8 @@ async function signupFormHandler(event) {
         password
       }),
       headers: { 'Content-Type': 'application/json' }
-    }).catch(e => console.log("error: " + e));;
+    }).catch(e => console.log("error: " + e));
+    const data = await response.json();
 
     // if you have username, email, and password, then navigate to homepage
     if (response.ok) {
