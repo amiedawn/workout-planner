@@ -23,7 +23,8 @@ router.get('/', withAuth, (req, res) => {
       console.log("classes", classes);
       res.render("core-conditioning", {
         classes,
-        loggedIn: true,
+        loggedIn: req.session.loggedIn,
+        //loggedIn: true,
       });
     })
     .catch((err) => {

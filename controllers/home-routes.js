@@ -36,7 +36,7 @@ router.get('/login', (req, res) => {
      return;
    }
 
-   res.render('login');
+   res.render("login", {loggedIn: req.session.loggedIn})
 });
 
 router.get("/signup", (req, res) => {
@@ -44,7 +44,7 @@ router.get("/signup", (req, res) => {
     res.redirect("/");
     return;
   }
-  res.render("login"); //is this right? used to say signup, but don't have that file here
+  res.render("login", { loggedIn: req.session.loggedIn}); //is this right? used to say signup, but don't have that file here
 });
 
 router.get('/homepage', (req, res) => {
@@ -53,7 +53,7 @@ router.get('/homepage', (req, res) => {
     return;
   }
 
-   res.render('homepage');
+   res.render("homepage", {loggedIn: req.session.loggedIn});
 });
 
 
@@ -159,11 +159,11 @@ router.get('/toning', (req, res) => {
 });
 */
 router.get('/calendar', (req, res) => {
-  res.render('calendar');
+  res.render("calendar", { loggedIn: req.session.loggedIn});
 });
 
 router.get('/newPlan', (req, res) => {
-  res.render('newPlan');
+  res.render("newPlan", { loggedIn: req.session.loggedIn });
 });
 
 module.exports = router;
