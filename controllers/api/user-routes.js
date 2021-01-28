@@ -55,7 +55,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
-// POST /api/users
+// POST /api/users  -- this is the signup route
 router.post("/", (req, res) => {
   User.create({
     username: req.body.username,
@@ -84,19 +84,21 @@ router.post("/login", (req, res) => {
       username: req.body.username,
     },
   }).then((dbUserData) => {
-    dbUserData.valid = req.body.password == dbUserData.password;
-
     if (!dbUserData) {
       res.status(400).json({ message: "No user with that username!" });
       return;
     }
 
+
+    const validPassword = dbUserData.checkPassword(req.body.password);
+;
     console.log({
       dbUserData,
       pw: req.body.password,
       hash: dbUserData.password,
       valid: dbUserData.checkPassword(req.body.password),
     });
+
 
     const validPassword = dbUserData.checkPassword(req.body.password);
     if (!validPassword) {
