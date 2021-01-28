@@ -59,7 +59,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-// POST /api/users
+// POST /api/users  -- this is the signup route
 router.post("/", (req, res) => {
   User.create({
     username: req.body.username,
@@ -88,8 +88,7 @@ router.post("/login", (req, res) => {
       username: req.body.username,
     },
   }).then((dbUserData) => {
-    dbUserData.valid = req.body.password == dbUserData.password;
-    res.json(dbUserData);
+
     if (!dbUserData) {
       res.status(400).json({ message: "No user with that username!" });
       return;
@@ -98,8 +97,8 @@ router.post("/login", (req, res) => {
     console.log(req.body.password);
     console.log(dbUserData.password);
 
-    const validPassword = req.body.password == dbUserData.password; // dbUserData.checkPassword(req.body.password);
-    console.log(validPassword);
+    const validPassword = dbUserData.checkPassword(req.body.password);// dbUserData.checkPassword(req.body.password);
+;
 
     if (!validPassword) {
       res.status(400).json({ message: "Incorrect password!" });
