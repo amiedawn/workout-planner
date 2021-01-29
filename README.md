@@ -1,5 +1,7 @@
 # Workout Planner
 
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+
 As a person who wants to workout using an on-demand class website, I want an application that helps schedule workout plans so that I can have variety and track which plan I like best.
 
 **Link to GitHub Repo:** https://github.com/amiedawn/workout-planner
@@ -21,7 +23,17 @@ You can also view your calendar to see scheduled classes by day, week or month.
 
 ## Installation
 
-The command that should be run to install dependencies is npm i.
+You will need to add a .env file to connect to the tech_blog_db database and then install several dependencies: Node.js, express, sequelize, MySQL2, dotenv, bcrypt, express-handlebars, express-session, and connect-session-sequelize. Once dependencies have been installed, you may run the application in the terminal by typing “node start”. If you choose to have some sample data in the blog to start with, you may load the test data by running "npm run seeds" before starting the server.
+
+## License:
+
+This site is under this license: MIT
+
+For details on this license, please follow: https://opensource.org/licenses/MIT
+
+## Tests:
+
+API routes were tested using Insomnia Core
 
 ## Contributing
 

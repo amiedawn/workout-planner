@@ -44,7 +44,7 @@ router.get("/signup", (req, res) => {
     res.redirect("/");
     return;
   }
-  res.render("login", { loggedIn: req.session.loggedIn}); //is this right? used to say signup, but don't have that file here
+  res.render("login", { loggedIn: req.session.loggedIn}); 
 });
 
 router.get('/homepage', (req, res) => {
@@ -55,7 +55,6 @@ router.get('/homepage', (req, res) => {
 
    res.render("homepage", {loggedIn: req.session.loggedIn});
 });
-
 
 // get all plans for homepage
 router.get("/", (req, res) => {
@@ -84,8 +83,6 @@ router.get("/", (req, res) => {
   })
     .then((dbPlanData) => {
       const plans = dbPlanData.map((plan) => plan.get({ plain: true }));
-      //res.render("homepage", { /*AC I think we want to navigate to dashboard here*/
-      console.log ('render dashboard thru home-routes.js');
       res.render("dashboard", {
         plans,
         loggedIn: req.session.loggedIn,
@@ -144,26 +141,12 @@ router.get("/plan/:id", (req, res) => {
     });
 });
 
-
-/*added here temporarily to test -- can move it to new location
-router.get('/strength-training', (req, res) => {
-  res.render('strength-training');
-});
-
-router.get('/cardio', (req, res) => {
-  res.render('cardio');
-});
-
-router.get('/toning', (req, res) => {
-  res.render('toning');
-});
-*/
 router.get('/calendar', (req, res) => {
   res.render("calendar", { loggedIn: req.session.loggedIn});
 });
 
 router.get('/newPlan', (req, res) => {
-  res.render("newPlan", { loggedIn: req.session.loggedIn });
+ res.render("newPlan", { loggedIn: req.session.loggedIn });
 });
 
 module.exports = router;

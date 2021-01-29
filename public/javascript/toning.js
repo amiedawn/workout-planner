@@ -17,10 +17,8 @@ async function toningFormHandler(event) {
   });
 
   if (response.ok) {
-    // response.render('dashboard');
     console.log("event.target.dataset", event.target.dataset);
- //   document.location.replace("/dashboard");
- document.location.replace("/newPlan");
+    document.location.replace("/newPlan");
   } else {
     alert(response.statusText);
   }

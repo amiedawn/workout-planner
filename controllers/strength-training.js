@@ -3,7 +3,6 @@ const sequelize = require("../config/connection");
 const { Class, Category } = require('../models');
 const withAuth = require('../utils/auth');
 
-/* get all plans for dashboard ADD WHERE USER ID & REQ.SESSION after login works */
 router.get('/', withAuth, (req, res) => {
   console.log("================ get strength-training route");
   Class.findAll({
@@ -23,7 +22,6 @@ router.get('/', withAuth, (req, res) => {
       res.render("strength-training", {
         classes,
         loggedIn: req.session.loggedIn,
-        //loggedIn: true,
       });
     })
     .catch((err) => {

@@ -8,7 +8,6 @@ router.get("/", (req, res) => {
   console.log("======================");
   Class.findAll({
     order: [["created_at", "DESC"]],
-    // Query configuration ,add comment id???
     attributes: [
       "id",
       "class_name",
