@@ -7,12 +7,6 @@
   <title>My Workout Planner</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var elems = document.querySelectorAll('select');
-      var instances = M.FormSelect.init(elems);
-    });
-  </script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="/stylesheets/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.css"
@@ -29,15 +23,11 @@
           <a href="/" class="brand-logo"><i class="material-icons">fitness_center</i>workout planner</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li>
-              <!--     <a href="/login">login</a> -->
-              <!--     </li><a href="/dashboard">Dashboard</a> -->
               {{#if loggedIn}}
               <button id="logout" class="waves-effect waves-light btn logout">logout</a>
-                <!--<button id="logout" class="waves-effect waves-light">logout</button>-->
-                <!--   <button id="logout" class="waves-effect waves-light">logout</button> -->
-                {{else}}
+              {{else}}
                 <a href="/login">login</a>
-                {{/if}}
+              {{/if}}
           </ul>
         </div>
       </nav>
@@ -51,13 +41,14 @@
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <h5 class="white-text">Workout Planner</h5>
+         <h5> <a href="/" class="brand-logo white-text"><i class="material-icons">fitness_center</i> Workout Planner</a></h5>
+        <!--  <h5 class="white-text">Workout Planner</h5> -->
           <p class="grey-text text-lighten-4">Plan your next workout activity and keep track of your workouts.</p>
         </div>
         <div class="col l4 offset-l2 s12">
           <h5 class="white-text">Navigation</h5>
           <ul>
-            <li><a class="grey-text text-lighten-3" href="#login">Login</a></li>
+            <li><a class="grey-text text-lighten-3" href="/login">Login</a></li>
             <li><a class="grey-text text-lighten-3" href="/newPlan">Create Plan Form</a></li>
             <li><a class="grey-text text-lighten-3" href="/dashboard">Dashboard</a></li>
             <li><a class="grey-text text-lighten-3" href="/calendar">Calendar</a></li>
@@ -78,5 +69,13 @@
   {{/if}}
 
 </body>
+
+<!--this is necessary for drop-down boxes for category and class, needs to be at end of file-->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+  });
+</script>
 
 </html>

@@ -44,7 +44,7 @@ router.get("/signup", (req, res) => {
     res.redirect("/");
     return;
   }
-  res.render("login", { loggedIn: req.session.loggedIn}); //is this right? used to say signup, but don't have that file here
+  res.render("login", { loggedIn: req.session.loggedIn}); 
 });
 
 router.get('/homepage', (req, res) => {
@@ -163,7 +163,8 @@ router.get('/calendar', (req, res) => {
 });
 
 router.get('/newPlan', (req, res) => {
-  res.render("newPlan", { loggedIn: req.session.loggedIn });
+ // categories.findAll
+ res.render("newPlan", { loggedIn: req.session.loggedIn });
 });
 
 module.exports = router;
