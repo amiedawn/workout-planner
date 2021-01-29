@@ -23,7 +23,7 @@ You can also view your calendar to see scheduled classes by day, week or month.
 
 ## Installation
 
- You will need to add a .env file to connect to the tech_blog_db database and then install several dependencies: Node.js, express, sequelize, MySQL2, dotenv, bcrypt, express-handlebars, express-session, and connect-session-sequelize. Once dependencies have been installed, you may run the application in the terminal by typing “node start”. If you choose to have some sample data in the blog to start with, you may load the test data by running "npm run seeds" before starting the server.
+You will need to add a .env file to connect to the tech_blog_db database and then install several dependencies: Node.js, express, sequelize, MySQL2, dotenv, bcrypt, express-handlebars, express-session, and connect-session-sequelize. Once dependencies have been installed, you may run the application in the terminal by typing “node start”. If you choose to have some sample data in the blog to start with, you may load the test data by running "npm run seeds" before starting the server.
 
 ## License:
 

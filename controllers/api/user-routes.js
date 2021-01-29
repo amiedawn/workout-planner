@@ -55,7 +55,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
-// POST /api/users
+// POST /api/users  -- this is the signup route
 router.post("/", (req, res) => {
   User.create({
     username: req.body.username,
@@ -89,12 +89,16 @@ router.post("/login", (req, res) => {
       return;
     }
 
+
+    const validPassword = dbUserData.checkPassword(req.body.password);
+;
     console.log({
       dbUserData,
       pw: req.body.password,
       hash: dbUserData.password,
       valid: dbUserData.checkPassword(req.body.password),
     });
+
 
     const validPassword = dbUserData.checkPassword(req.body.password);
     
