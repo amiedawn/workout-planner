@@ -8,7 +8,6 @@ router.get("/", (req, res) => {
   console.log("======================");
   Plan.findAll({
     order: [["created_at", "DESC"]],
-    // Query configuration ,add comment id???
     attributes: [
       "id",
       "plan_title",

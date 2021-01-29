@@ -17,15 +17,6 @@ Class.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    // confirmed from LA we don't want this
-    // category_id: {
-    //  // type: DataTypes.INTEGER
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: "category",
-    //     key: "id",
-    //   },
-    // },
   },
   {
     sequelize,

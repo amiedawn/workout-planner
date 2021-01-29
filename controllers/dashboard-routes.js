@@ -28,7 +28,6 @@ router.get('/', withAuth, (req, res) => {
       res.render("dashboard", {
         plans,
         loggedIn: req.session.loggedIn,
-        //loggedIn: true,
       });
     })
     .catch((err) => {
@@ -115,7 +114,6 @@ router.get("/create/", withAuth, (req, res) => {
       res.render("add-plan", {
         plans,
         loggedIn: req.session.loggedIn,
-        //loggedIn: true,
       });
     })
     .catch((err) => {

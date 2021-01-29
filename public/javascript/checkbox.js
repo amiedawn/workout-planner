@@ -16,7 +16,6 @@ async function checkBoxHandler(event) {
   });
 
   if (response.ok) {
-    // response.render('dashboard');
     document.location.replace("/dashboard");
   } else {
     alert(response.statusText);
