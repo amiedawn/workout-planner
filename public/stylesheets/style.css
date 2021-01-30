@@ -77,3 +77,12 @@ li {
 .collection .collection-item {
   width: 600px;
 }
+
+.text {
+  padding-top: 2px;
+  padding-bottom: 15px;
+}
+
+.meta {
+  font-weight: bolder;
+}
