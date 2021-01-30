@@ -6,7 +6,7 @@ async function newFormHandler(event) {
     .value;
   const class_name = document.querySelector('select[name="class-name"]').value;
 
-  const response = await fetch(`/api/plans`, {
+  const response = await fetch(`/api/classes`, {
     method: "POST",
     body: JSON.stringify({
       plan_title,

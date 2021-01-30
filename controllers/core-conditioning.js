@@ -12,7 +12,7 @@ router.get('/', withAuth, (req, res) => {
       {
         model: Category,
         where: {
-          id: 2
+          id: 3
         },
       }
     ]
