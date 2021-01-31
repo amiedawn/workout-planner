@@ -6,7 +6,7 @@ As a person who wants to workout using an on-demand class website, I want an app
 
 **Link to GitHub Repo:** https://github.com/amiedawn/workout-planner
 
-**Link to Heroku:** tbd
+**Link to Heroku:** https://fierce-stream-17868.herokuapp.com/
 
 ![Image of Application](public/stylesheets/images/workout-planner.png)
 
